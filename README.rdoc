@@ -4,6 +4,6 @@
 
 A Hitch-hiking App.
 
-[lifteri-ci]: https://travis-ci.org/TIY-ATL-ROR-2016-Feb/planeswalkr
-[lifteri-ci-image]: https://travis-ci.org/TIY-ATL-ROR-2016-Feb/planeswalkr.svg
+[lifteri-ci]: https://travis-ci.org/hitch-hiking-app/backend.svg?branch=master
+[lifteri-ci-image]: https://travis-ci.org/hitch-hiking-app/backend.svg?branch=master
 
