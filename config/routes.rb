@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :logins, only: [:create] 
   post "register", to: "registrations#create", as: "register"
-
 
 
   
