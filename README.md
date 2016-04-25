@@ -7,11 +7,11 @@ Most awesome Hitch-hiking App.
 [lifteri-ci]: https://travis-ci.org/hitch-hiking-app/backend.svg?branch=master
 [lifteri-ci-image]: https://travis-ci.org/hitch-hiking-app/backend.svg?branch=master
 
-#### POST /registration
+#### POST /register
 
 *This route is present for the signup of new users.*
 
-POST https://salty-river-31528.herokuapp.com/registration
+POST https://salty-river-31528.herokuapp.com/register
 
 Params:
   * first_name: string
