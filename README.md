@@ -27,12 +27,10 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 
 ```
 {
-  "id": 2,
   "first_name": "Joe",
   "last_name": "Schmoe",
   "email": "joe@email.com",
   "password": "password"
-  "auth_token": "48aeec41636614da6c52f85f706b889d"
 }
 ```
 
