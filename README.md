@@ -14,7 +14,11 @@ Most awesome Hitch-hiking App.
 POST https://salty-river-31528.herokuapp.com/register
 
 Params:
+<<<<<<< HEAD
   * user_name: string
+=======
+  * id: integer
+>>>>>>> paperclip
   * first_name: string
   * last_name: string
   * email: string
