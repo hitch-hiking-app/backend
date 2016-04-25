@@ -1,28 +1,9 @@
-== README
+## Lifteri
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Lifteri Tests][lifteri-ci-image]][lifteri-ci]
 
-Things you may want to cover:
+A Hitch-hiking App.
 
-* Ruby version
+[lifteri-ci]: https://travis-ci.org/TIY-ATL-ROR-2016-Feb/planeswalkr
+[lifteri-ci-image]: https://travis-ci.org/TIY-ATL-ROR-2016-Feb/planeswalkr.svg
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
