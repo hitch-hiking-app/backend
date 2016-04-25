@@ -14,6 +14,7 @@ Most awesome Hitch-hiking App.
 POST https://salty-river-31528.herokuapp.com/register
 
 Params:
+  * id: integer
   * first_name: string
   * last_name: string
   * email: string
@@ -26,6 +27,7 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 
 ```
 {
+  "id": 2,
   "first_name": "Joe",
   "last_name": "Schmoe",
   "email": "joe@email.com",
@@ -39,6 +41,7 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 ```
 {
   "user": {
+    "id": 2,
     "first_name": "joe",
     "last_name": "schmoe",
     "email": "joe@email.com",
