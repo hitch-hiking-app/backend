@@ -21,7 +21,7 @@ class HostsController < ApplicationController
 
   def show
     @host = Host.find(params["id"])
-    render json: { hosts: @host.as_json }
+    render "show.json.jbuilder", status: :ok
   end
 
   def update
