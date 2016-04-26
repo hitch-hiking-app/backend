@@ -57,7 +57,7 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 
 #### POST /logins
 
-*This route is present for the signup of new users.*
+*This route is present for the login of users.*
 
 POST https://salty-river-31528.herokuapp.com/logins
 
