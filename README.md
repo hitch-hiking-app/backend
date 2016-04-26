@@ -92,3 +92,88 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 }
 ```
 
+#### POST /hosts
+
+*This route is present to create a new trip to host.*
+
+POST https://salty-river-31528.herokuapp.com/hosts
+
+Params:
+  * departing_city: string
+  * destination: string
+  * seats_available: integer
+  * seat_price: integer
+  * date_leave: date
+  * date_arrive: date
+  * comments: text
+
+Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+
+**Request:**
+
+```
+{
+  "departing_city": "Washington DC"
+  "destination": "Atlanta",
+  "seats_available": "2",
+  "seat_price": "50",
+  "date_leave": "2016-01-01",
+  "date_arrive": "2016-01-02"
+  "comments": "they were nice"
+}
+```
+
+**Response:**
+
+```
+{
+  "host": {
+    "user_name": "mark_smith",
+    "first_name": "Mark",
+    "last_name": "Smith",
+    "email": "mark@hotmail.com",
+    "departing_city": "Atlanta",
+    "destination": "Los Angeles",
+    "seats_available": 2,
+    "seat_price": 100,
+    "date_leave": "2016-01-01",
+    "date_arrive": "2016-01-03",
+    "comments": "they were nice"
+  }
+}
+```
+#### GET /hosts
+
+*This route is present to get a list of all the trips being hosted.*
+
+Returns 200 OK on success.
+
+**Response**
+```
+{
+  "host": [
+    {
+      "id": 1,
+      "user_id": 20,
+      "departing_city": "Atlanta",
+      "destination": "Los Angeles",
+      "seats_available": 2,
+      "seat_price": 100,
+      "date_leave": "2016-01-01",
+      "date_arrive": "2016-01-03",
+      "comments": "it was fun"
+    },
+    {
+      "id": 2,
+      "user_id": 20,
+      "departing_city": "Los Angeles",
+      "destination": "Seattle",
+      "seats_available": 2,
+      "seat_price": 100,
+      "date_leave": "2016-01-01",
+      "date_arrive": "2016-01-03",
+      "comments": "long trip"
+    }
+  ]
+}
+```
