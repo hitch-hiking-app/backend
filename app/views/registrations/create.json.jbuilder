@@ -6,4 +6,9 @@ json.user do
   json.email @user.email
   json.auth_token @user.auth_token
   json.driver @user.driver
+  json.picture do
+	json.url @picture.image.url
 end
+end
+
+

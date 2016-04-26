@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426170206) do
+ActiveRecord::Schema.define(version: 20160426180201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,16 +30,18 @@ ActiveRecord::Schema.define(version: 20160426170206) do
   end
 
   create_table "pictures", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "name"
     t.integer  "imageable_id"
     t.string   "imageable_type"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
   end
+
+  add_index "pictures", ["imageable_id"], name: "index_pictures_on_imageable_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "user_name"
@@ -54,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160426170206) do
     t.string   "password_digest"
     t.string   "auth_token"
     t.boolean  "driver",          default: false
+    t.integer  "picture_id"
   end
 
 end
