@@ -41,12 +41,16 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 ```
 {
   "user": {
-    "id": 5,
-    "user_name:" "userjoe",
-    "first_name": "joe",
-    "last_name": "schmoe",
+    "id": 1,
+    "user_name": "user_joe",
+    "first_name": "Joe",
+    "last_name": "Schmoe",
     "email": "joe@email.com",
-    "auth_token": "f5cbaa437d4eaed621afd81496501d39"
+    "auth_token": "1391544df4fac2ab649c845e26b50df8",
+    "driver": false,
+    "picture": {
+      "url": "http://lifteri.s3-website-us-east-1.amazonaws.com/lifteri/pictures/images//original/Screen_Shot_2016-04-17_at_2.34.38_PM.png?1461698064"
+    }
   }
 }
 ```
