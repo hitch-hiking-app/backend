@@ -39,3 +39,4 @@ end
   #  seat_price
   #  date_leave
   #  date_arrive
+  #  comments
