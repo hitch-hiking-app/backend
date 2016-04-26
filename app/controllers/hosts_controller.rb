@@ -7,10 +7,11 @@ class HostsController < ApplicationController
   end
 
   def create
-    @host = current_user.hosts.create(departing_city: params[:departing_city],
-                          destination: params[:destination], seats_available: params[:seats_available],
-                          seat_price: params[:seat_price], date_leave: params[:date_leave],
-                          date_arrive: params[:date_arrive], comments: params[:comments])
+    @host = current_user.hosts.create(user_id: session[:user_id], id: params[:id],
+                                      departing_city: params[:departing_city],
+                                      destination: params[:destination], seats_available: params[:seats_available],
+                                      seat_price: params[:seat_price], date_leave: params[:date_leave],
+                                      date_arrive: params[:date_arrive], comments: params[:comments])
     if @host.save
        render "create.json.jbuilder", status: :created
     else
@@ -18,6 +19,35 @@ class HostsController < ApplicationController
     end
   end
 
+  def show
+    @host = Host.find(params["id"])
+    render json: { hosts: @host.as_json }
+  end
+
+  def update
+    @host = Host.find_by(id: params[:id])
+    if current_user.id == @host.user_id
+      @host.update(departing_city: params[:departing_city],
+      destination: params[:destination], seats_available: params[:seats_available],
+      seat_price: params[:seat_price], date_leave: params[:date_leave],
+      date_arrive: params[:date_arrive], comments: params[:comments])
+         render "update.json.jbuilder", status: :created
+    else
+      render json: { errors: @host.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @host = Host.find_by(id: params[:id])
+    if current_user.id == @host.user_id
+      @host.destroy
+      render json: { message: "Trip deleted." },
+      status: :accepted
+    else
+      render json: { error: "Invalid User."},
+      status: :unauthorized
+    end
+  end
 
 end
 
