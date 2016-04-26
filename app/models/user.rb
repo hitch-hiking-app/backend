@@ -2,7 +2,10 @@ class User < ActiveRecord::Base
   has_many :hosts
   has_many :pictures, as: :imageable
   has_secure_password
+  #has_many :pictures, as: :imageable
+  #has_attached_file :image
 
+  #validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ 
   validates :email, presence: true, uniqueness: true,
     format: {
       with: /.+\@.+\..+/,
