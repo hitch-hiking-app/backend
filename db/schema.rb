@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20160426170206) do
     t.text     "comments"
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "name"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "user_name"
     t.string   "first_name"
