@@ -1,10 +1,7 @@
 class CreatePictures < ActiveRecord::Migration
   def change
     create_table :pictures do |t|
-	  t.attachment  :image
-	  t.string :name
-      t.integer :imageable_id
-      t.string  :imageable_type
+      t.integer :user_id
       t.timestamps null: false
     end
   end

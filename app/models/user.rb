@@ -1,16 +1,15 @@
 class User < ActiveRecord::Base
   has_many :hosts
   has_many :pictures, as: :imageable
-  has_attached_file :image
   has_secure_password
 
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ 
   validates :email, presence: true, uniqueness: true,
     format: {
       with: /.+\@.+\..+/,
       message: "must have an @ symbol and period"
     }
   validates :auth_token, presence: true
+  
 
 
 
