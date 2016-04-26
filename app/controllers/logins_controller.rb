@@ -4,8 +4,7 @@ before_action :authenticate!, only: [:check_auth]
   def create
     @user = User.find_by!(user_name: params["user_name"])
     if @user.authenticate(params["password"])
-      render json: { user: @user.as_json(only: [:user_name, :auth_token]) },
-             status: :ok
+      render 'create.json.jbuilder', status: :created
     else
       render json: { message: "Username or password could not be found." },
              status: :unauthorized
