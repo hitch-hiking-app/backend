@@ -14,11 +14,8 @@ Most awesome Hitch-hiking App.
 POST https://salty-river-31528.herokuapp.com/register
 
 Params:
-<<<<<<< HEAD
   * user_name: string
-=======
   * id: integer
->>>>>>> paperclip
   * first_name: string
   * last_name: string
   * email: string
@@ -53,3 +50,45 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
   }
 }
 ```
+
+#### POST /logins
+
+*This route is present for the signup of new users.*
+
+POST https://salty-river-31528.herokuapp.com/logins
+
+Params:
+  * user_name: string
+  * id: integer
+  * first_name: string
+  * last_name: string
+  * email: string
+  * password: string
+  * auth_token: string
+
+Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+
+**Request:**
+
+```
+{
+  "user_name": "userjoe"
+  "password": "password"
+}
+```
+
+**Response:**
+
+```
+{
+  "user": {
+    "id": 5,
+    "user_name:" "userjoe",
+    "first_name": "joe",
+    "last_name": "schmoe",
+    "email": "joe@email.com",
+    "auth_token": "f5cbaa437d4eaed621afd81496501d39"
+  }
+}
+```
+
