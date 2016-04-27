@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  belongs_to :profile
   has_many :hosts
   has_many :pictures, as: :imageable
   has_secure_password
