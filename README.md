@@ -185,22 +185,6 @@ Returns 200 OK on success.
 }
 ```
 
-<<<<<<< HEAD
-#### GET /profile
-
-*This route is present for the profile of logged in users.*
-
-GET https://salty-river-31528.herokuapp.com/profile/:user_id
-
-Params:
-  * user_name: string
-  * id: integer
-  * first_name: string
-  * last_name: string
-  * email: string
-  * password: string
-  * auth_token: string
-=======
 #### GET /hosts/:id
 
 *This route is present to show a trip being hosted.*
@@ -244,6 +228,35 @@ Params:
 
 
 Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+
+#### DELETE /hosts/:id
+
+*This route is to delete a trip*
+
+DELETE https://salty-river-31528.herokuapp.com/hosts/:id
+
+Params:
+* id: integer - this comes from the url (:id)
+
+
+Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
+
+
+#### GET /profile
+
+*This route is present for the profile of logged in users.*
+
+GET https://salty-river-31528.herokuapp.com/profile/:user_id
+
+Params:
+  * user_name: string
+  * id: integer
+  * first_name: string
+  * last_name: string
+  * email: string
+  * password: string
+  * auth_token: string
+=======
 
 **Request:**
 
@@ -322,14 +335,4 @@ Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
   }
 }
 ```
-#### DELETE /hosts/:id
 
-*This route is to delete a trip*
-
-DELETE https://salty-river-31528.herokuapp.com/hosts/:id
-
-Params:
-* id: integer - this comes from the url (:id)
-
-
-Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
