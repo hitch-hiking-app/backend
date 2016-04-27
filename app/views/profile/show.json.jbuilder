@@ -6,9 +6,11 @@ json.user do
   json.email @user.email
   json.auth_token @user.auth_token
   json.driver @user.driver
-   	#json.picture do
-		#json.url @picture.image.url
-	#end
+
+
+  json.pictures @user.pictures do |picture|
+    json.image_url picture.image.url
+  end
 	  json.host @host do |host|
   		json.host host.user_id
   		json.departing_city host.departing_city

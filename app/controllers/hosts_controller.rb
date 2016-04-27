@@ -1,5 +1,5 @@
 class HostsController < ApplicationController
-  before_action :authenticate!, except: [:index]
+  before_action :authenticate!, except: [:index, :show]
 
   def index
     @hosts = Host.all
