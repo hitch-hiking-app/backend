@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post "register", to: "registrations#create", as: "register"
   resources :hosts, except: [:new, :edit]
   resources :profile, only: [:index, :show]
-  put "users", to: "users#update"
+  put "users/:id", to: "users#update"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
