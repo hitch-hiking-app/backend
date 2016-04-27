@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427002447) do
+ActiveRecord::Schema.define(version: 20160427201221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,12 +55,15 @@ ActiveRecord::Schema.define(version: 20160427002447) do
     t.string   "phone"
     t.string   "car_info"
     t.string   "home_city"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "password_digest"
     t.string   "auth_token"
-    t.boolean  "driver",          default: false
+    t.boolean  "driver",             default: false
     t.integer  "picture_id"
+    t.string   "license_plate"
+    t.string   "license_number"
+    t.integer  "credit_card_number"
   end
 
 end
