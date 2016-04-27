@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :logins, only: [:create]
   post "register", to: "registrations#create", as: "register"
   resources :hosts, except: [:new, :edit]
-  resources :profile, only: [:index, :show]
+  resources :profile
 
 
   # The priority is based upon order of creation: first created -> highest priority.
