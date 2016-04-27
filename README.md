@@ -124,7 +124,7 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
   "seat_price": "50",
   "date_leave": "2016-01-01",
   "date_arrive": "2016-01-02"
-  "comments": "they were nice"
+  "comments": "Looking forward to the trip"
 }
 ```
 
@@ -143,13 +143,15 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
     "seat_price": 100,
     "date_leave": "2016-01-01",
     "date_arrive": "2016-01-03",
-    "comments": "they were nice"
+    "comments": "Looking forward to the trip"
   }
 }
 ```
 #### GET /hosts
 
 *This route is present to get a list of all the trips being hosted.*
+
+GET https://salty-river-31528.herokuapp.com/hosts
 
 Returns 200 OK on success.
 
@@ -166,7 +168,7 @@ Returns 200 OK on success.
       "seat_price": 100,
       "date_leave": "2016-01-01",
       "date_arrive": "2016-01-03",
-      "comments": "it was fun"
+      "comments": "Looking forward to the trip"
     },
     {
       "id": 2,
@@ -177,12 +179,13 @@ Returns 200 OK on success.
       "seat_price": 100,
       "date_leave": "2016-01-01",
       "date_arrive": "2016-01-03",
-      "comments": "long trip"
+      "comments": "Looking forward to the trip"
     }
   ]
 }
 ```
 
+<<<<<<< HEAD
 #### GET /profile
 
 *This route is present for the profile of logged in users.*
@@ -197,6 +200,40 @@ Params:
   * email: string
   * password: string
   * auth_token: string
+=======
+#### GET /hosts/:id
+
+*This route is present to show a trip being hosted.*
+
+GET https://salty-river-31528.herokuapp.com/hosts/:id
+
+Returns 200 OK on success.
+
+**Response**
+```
+{
+  "hosts": {
+    "id": 6,
+    "user_id": 26,
+    "departing_city": "Los Angeles",
+    "destination": "Seattle",
+    "seats_available": 2,
+    "seat_price": 100,
+    "created_at": "2016-04-26T19:31:32.529Z",
+    "updated_at": "2016-04-26T19:31:32.529Z",
+    "date_leave": "2016-01-01",
+    "date_arrive": "2016-01-03",
+    "comments": "Looking forward to the trip"
+  }
+}
+```
+#### PUT /hosts/:id
+
+*This route is present to update and existing trip*
+
+PUT https://salty-river-31528.herokuapp.com/hosts/:id
+
+Params:
   * departing_city: string
   * destination: string
   * seats_available: integer
@@ -204,6 +241,7 @@ Params:
   * date_leave: date
   * date_arrive: date
   * comments: text
+
 
 Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 
@@ -251,3 +289,47 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
     ]
   }
 ```
+=======
+Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+
+**Response**
+```
+{
+  "departing_city": "Atlanta"
+  "destination": "New York",
+  "seats_available": "2",
+  "seat_price": "100",
+  "date_leave": "2016-01-01",
+  "date_arrive": "2016-01-02"
+  "comments": "Looking forward to the trip"
+}
+
+{
+  "host": {
+    "user_name": "mark_smith",
+    "first_name": "Mark",
+    "last_name": "Smith",
+    "email": "mark@hotmail.com",
+    "user_id": 15,
+    "id": 13,
+    "departing_city": "Atlanta",
+    "destination": "New York",
+    "seats_available": 2,
+    "seat_price": 50,
+    "date_leave": "2016-01-01",
+    "date_arrive": "2016-01-03",
+    "comments": "Looking forward to the trip."
+  }
+}
+```
+#### DELETE /hosts/:id
+
+*This route is to delete a trip*
+
+DELETE https://salty-river-31528.herokuapp.com/hosts/:id
+
+Params:
+* id: integer - this comes from the url (:id)
+
+
+Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
