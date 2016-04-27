@@ -289,6 +289,8 @@ Params:
   * password: string
   * auth_token: string
 
+Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+
 **Request:**
 
 ```
@@ -333,5 +335,51 @@ Params:
     ]
   }
 ```
-=======
-Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+
+#### PUT /hosts/:id
+
+*This route is present to update and existing trip*
+
+PUT https://salty-river-31528.herokuapp.com/hosts/:id
+
+Params:
+  * first_name: string
+  * last_name: string
+  * phone: integer
+  * car_info: integer
+  * home_city: date
+  * license_plate: date
+  * license_number: text
+  * credit_card_number
+
+
+Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+
+**Request**
+```
+  "first_name": "alan",
+  "last_name": "smith",
+  "phone": "4043234546",
+  "car_info": black honda,
+  "home_city": "Atlanta",
+  "license_plate": "3e35",
+  "license_number": "3445rf33",
+  "credit_card_number": 34545,
+```
+
+**Response**
+```
+{
+  "user":{
+    "first_name": "alan",
+    "last_name": "smith",
+    "phone": "4043234546",
+    "car_info": black honda,
+    "home_city": "Atlanta",
+    "license_plate": "3e35",
+    "license_number": "3445rf33",
+    "credit_card_number": 34545,
+    "driver": true
+  }
+}
+```
