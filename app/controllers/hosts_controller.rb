@@ -14,7 +14,7 @@ class HostsController < ApplicationController
                                       date_arrive: params[:date_arrive], comments: params[:comments])
     @user = current_user.update(driver: true)
     if @host.save
-       UserWelcome.send_signup_email(@host.user.email).deliver ##UserNotifier
+       # UserWelcome.send_signup_email(@host.user.email).deliver ##UserNotifier
        render "create.json.jbuilder", status: :created
     else
       render json: { errors: @host.errors.full_messages }, status: :unprocessable_entity
