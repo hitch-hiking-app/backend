@@ -38,9 +38,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-end
 
-config.action_mailer.delivery_method = :smtp ##:sendmail ??
+
+#config.action_mailer.delivery_method = :smtp ##:sendmail ??
 
 config.action_mailer.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
@@ -51,3 +51,4 @@ config.action_mailer.smtp_settings = {
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
+end
