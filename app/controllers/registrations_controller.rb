@@ -6,7 +6,7 @@ class RegistrationsController < ApplicationController
                      last_name: params[:last_name], 
                      email: params[:email],
                      password: params[:password])
-    @picture = Picture.new(image: params[:image])
+    @picture = @user.pictures.new(image: params[:image])
    @user.ensure_auth_token
    if @user.save
      render 'create.json.jbuilder', status: :created
