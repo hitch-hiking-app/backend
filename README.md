@@ -288,7 +288,6 @@ Params:
   * email: string
   * password: string
   * auth_token: string
-=======
 
 **Request:**
 
