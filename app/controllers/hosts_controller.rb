@@ -12,6 +12,7 @@ class HostsController < ApplicationController
                                       destination: params[:destination], seats_available: params[:seats_available],
                                       seat_price: params[:seat_price], date_leave: params[:date_leave],
                                       date_arrive: params[:date_arrive], comments: params[:comments])
+    @user = current_user.update(driver: true)
     if @host.save
        render "create.json.jbuilder", status: :created
     else
@@ -21,7 +22,7 @@ class HostsController < ApplicationController
 
   def show
     @host = Host.find(params["id"])
-    render "show.json.jbuilder", status: :ok
+    render json: { hosts: @host.as_json }
   end
 
   def update
