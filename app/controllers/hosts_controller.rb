@@ -13,6 +13,7 @@ class HostsController < ApplicationController
                                       seat_price: params[:seat_price], date_leave: params[:date_leave],
                                       date_arrive: params[:date_arrive], comments: params[:comments])
     if @host.save
+       # UserWelcome.send_signup_email(@host.user.email).deliver ##UserNotifier
        render "create.json.jbuilder", status: :created
     else
       render json: { errors: @host.errors.full_messages }, status: :unprocessable_entity
