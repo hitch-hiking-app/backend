@@ -33,6 +33,7 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
   "last_name": "Schmoe",
   "email": "joe@email.com",
   "password": "password"
+  "picture": "image."
 }
 ```
 
@@ -180,4 +181,73 @@ Returns 200 OK on success.
     }
   ]
 }
+```
+
+#### GET /profile
+
+*This route is present for the profile of logged in users.*
+
+GET https://salty-river-31528.herokuapp.com/profile/:user_id
+
+Params:
+  * user_name: string
+  * id: integer
+  * first_name: string
+  * last_name: string
+  * email: string
+  * password: string
+  * auth_token: string
+  * departing_city: string
+  * destination: string
+  * seats_available: integer
+  * seat_price: integer
+  * date_leave: date
+  * date_arrive: date
+  * comments: text
+
+Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+
+**Request:**
+
+```
+{
+  "Auth-Token": "203c7eb41a80cbb5398cc6b6db22ccc3"
+}
+```
+
+**Response:**
+
+```
+{
+  "user": {
+    "id": 54,
+    "user_name": "someone11234",
+    "first_name": "some",
+    "last_name": "one",
+    "email": "some11one1111131142111111111111413314@email.com",
+    "auth_token": "203c7eb41a80cbb5398cc6b6db22ccc3",
+    "driver": false,
+    "host": [
+      {
+        "host": 54,
+        "departing_city": "vietnam",
+        "destination": "alaska",
+        "seats_available": 10,
+        "seat_price": 10,
+        "date_leave": "2016-01-01",
+        "date_arrive": "2016-02-12",
+        "comments": "hey"
+      },
+      {
+        "host": 55,
+        "departing_city": "georgia",
+        "destination": "colorado",
+        "seats_available": 10,
+        "seat_price": 10,
+        "date_leave": "2016-01-01",
+        "date_arrive": "2016-02-12",
+        "comments": "hey"
+      }
+    ]
+  }
 ```
