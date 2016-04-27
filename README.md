@@ -242,6 +242,38 @@ Params:
 Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
 
 
+**Response**
+```
+{
+  "departing_city": "Atlanta"
+  "destination": "New York",
+  "seats_available": "2",
+  "seat_price": "100",
+  "date_leave": "2016-01-01",
+  "date_arrive": "2016-01-02"
+  "comments": "Looking forward to the trip"
+}
+
+{
+  "host": {
+    "user_name": "mark_smith",
+    "first_name": "Mark",
+    "last_name": "Smith",
+    "email": "mark@hotmail.com",
+    "user_id": 15,
+    "id": 13,
+    "departing_city": "Atlanta",
+    "destination": "New York",
+    "seats_available": 2,
+    "seat_price": 50,
+    "date_leave": "2016-01-01",
+    "date_arrive": "2016-01-03",
+    "comments": "Looking forward to the trip."
+  }
+}
+```
+
+
 #### GET /profile
 
 *This route is present for the profile of logged in users.*
@@ -304,35 +336,3 @@ Params:
 ```
 =======
 Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
-
-**Response**
-```
-{
-  "departing_city": "Atlanta"
-  "destination": "New York",
-  "seats_available": "2",
-  "seat_price": "100",
-  "date_leave": "2016-01-01",
-  "date_arrive": "2016-01-02"
-  "comments": "Looking forward to the trip"
-}
-
-{
-  "host": {
-    "user_name": "mark_smith",
-    "first_name": "Mark",
-    "last_name": "Smith",
-    "email": "mark@hotmail.com",
-    "user_id": 15,
-    "id": 13,
-    "departing_city": "Atlanta",
-    "destination": "New York",
-    "seats_available": 2,
-    "seat_price": 50,
-    "date_leave": "2016-01-01",
-    "date_arrive": "2016-01-03",
-    "comments": "Looking forward to the trip."
-  }
-}
-```
-
