@@ -1,4 +1,4 @@
-json.user do
+json.host do
   json.user_name @host.user.user_name
   json.first_name @host.user.first_name
   json.last_name @host.user.last_name
