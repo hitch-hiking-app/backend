@@ -348,7 +348,7 @@ Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
 
 #### PUT /users/:id
 
-*This route is present to update and existing trip*
+*This route is present to update user information when hosting a trip*
 
 PUT https://salty-river-31528.herokuapp.com/users/:id
 
@@ -465,4 +465,3 @@ Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
     ]
   }
 ```
-
