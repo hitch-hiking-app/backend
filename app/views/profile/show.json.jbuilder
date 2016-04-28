@@ -6,13 +6,19 @@ json.user do
   json.email @user.email
   json.auth_token @user.auth_token
   json.driver @user.driver
-
+  json.phone @user.phone
+  json.car_info @user.car_info
+  json.home_city @user.home_city
+  json.license_plate @user.license_plate
+  json.license_number @user.license_number
+  json.credit_card_number @user.credit_card_number
 
   json.pictures @user.pictures do |picture|
     json.image_url picture.image.url
   end
 	  json.host @host do |host|
-  		json.host host.user_id
+      json.host_id host.id
+  		json.driver host.user_id
   		json.departing_city host.departing_city
  		json.destination host.destination
   		json.seats_available host.seats_available
