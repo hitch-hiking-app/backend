@@ -22,7 +22,7 @@ class ProfileController < ApplicationController
       					 license_plate: params[:license_plate],
       					 license_number: params[:license_number],
       					 credit_card_number: params[:credit_card_number]
-      		@picture = @user.pictures.update(image: params[:image])
+      		# @picture = @user.pictures.update(image: params[:image])
         	render "update.json.jbuilder", status: :created
    		else
       		render json: { errors: @host.errors.full_messages }, status: :unprocessable_entity
