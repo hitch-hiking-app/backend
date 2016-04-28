@@ -393,3 +393,76 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
   }
 }
 ```
+
+#### PUT /profile/:id
+
+*This route is present for the profile editing of logged in users.*
+
+PUT https://salty-river-31528.herokuapp.com/profile/:user_id
+
+Params:
+  * user_name: string
+  * id: integer
+  * first_name: string
+  * last_name: string
+  * email: string
+  * password: string
+  * auth_token: string
+
+Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+
+**Request:**
+
+```
+{
+  "Auth-Token": "203c7eb41a80cbb5398cc6b6db22ccc3"
+}
+```
+
+**Response:**
+
+```
+{
+  "user": {
+    "id": 54,
+    "user_name": "someone11234",
+    "first_name": "some",
+    "last_name": "one",
+    "email": "some11one1111131142111111111111413314@email.com",
+    "auth_token": "203c7eb41a80cbb5398cc6b6db22ccc3",
+    "driver": false,
+    "phone": 7701235678,
+    "car_info": 2010 Generic Car Black,
+    "home_city": Atlanta, GA,
+    "license_plate": 789162w,
+    "license_number": 124809248091,
+    "credit_card_number": 124212141241,
+    "pictures": [
+      {
+        "image_url": "http://s3.amazonaws.com/lifteri/pictures/images/000/000/001/original/Screen_Shot_2016-04-17_at_2.34.38_PM.png?1461857236"
+      }
+    "host": [
+      {
+        "host": 54,
+        "departing_city": "vietnam",
+        "destination": "alaska",
+        "seats_available": 10,
+        "seat_price": 10,
+        "date_leave": "2016-01-01",
+        "date_arrive": "2016-02-12",
+        "comments": "hey"
+      },
+      {
+        "host": 55,
+        "departing_city": "georgia",
+        "destination": "colorado",
+        "seats_available": 10,
+        "seat_price": 10,
+        "date_leave": "2016-01-01",
+        "date_arrive": "2016-02-12",
+        "comments": "hey"
+      }
+    ]
+  }
+```
+
