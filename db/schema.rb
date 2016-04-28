@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427201221) do
+ActiveRecord::Schema.define(version: 20160428160828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20160427201221) do
     t.integer  "picture_id"
     t.string   "license_plate"
     t.string   "license_number"
-    t.integer  "credit_card_number"
+    t.string   "credit_card_number"
   end
 
 end
