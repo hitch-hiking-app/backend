@@ -1,5 +1,5 @@
 class HostsController < ApplicationController
-  before_action :authenticate!, except: [:index, :show]
+  before_action :authenticate!, except: [:index, :show, :update]
 
   def index
     @hosts = Host.all
@@ -27,12 +27,12 @@ class HostsController < ApplicationController
 
   def update
     @host = Host.find_by(id: params[:id])
-    if current_user.id == @host.user_id
       @host.update(departing_city: params[:departing_city],
       destination: params[:destination], seats_available: params[:seats_available],
       seat_price: params[:seat_price], date_leave: params[:date_leave],
       date_arrive: params[:date_arrive], comments: params[:comments])
-         render "update.json.jbuilder", status: :created
+    if @host.save
+      render "update.json.jbuilder", status: :created
     else
       render json: { errors: @host.errors.full_messages }, status: :unprocessable_entity
     end
