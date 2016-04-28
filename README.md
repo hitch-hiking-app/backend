@@ -274,7 +274,7 @@ Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
 ```
 
 
-#### GET /profile
+#### GET /profile/:id
 
 *This route is present for the profile of logged in users.*
 
@@ -288,6 +288,8 @@ Params:
   * email: string
   * password: string
   * auth_token: string
+
+Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
 
 **Request:**
 
@@ -309,6 +311,16 @@ Params:
     "email": "some11one1111131142111111111111413314@email.com",
     "auth_token": "203c7eb41a80cbb5398cc6b6db22ccc3",
     "driver": false,
+    "phone": 7701235678,
+    "car_info": 2010 Generic Car Black,
+    "home_city": Atlanta, GA,
+    "license_plate": 789162w,
+    "license_number": 124809248091,
+    "credit_card_number": 124212141241,
+    "pictures": [
+      {
+        "image_url": "http://s3.amazonaws.com/lifteri/pictures/images/000/000/001/original/Screen_Shot_2016-04-17_at_2.34.38_PM.png?1461857236"
+      }
     "host": [
       {
         "host": 54,
@@ -333,5 +345,51 @@ Params:
     ]
   }
 ```
-=======
-Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+
+#### PUT /users/:id
+
+*This route is present to update and existing trip*
+
+PUT https://salty-river-31528.herokuapp.com/users/:id
+
+Params:
+  * first_name: string
+  * last_name: string
+  * phone: integer
+  * car_info: integer
+  * home_city: date
+  * license_plate: date
+  * license_number: text
+  * credit_card_number
+
+
+Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+
+**Request**
+```
+  "first_name": "alan",
+  "last_name": "smith",
+  "phone": "4043234546",
+  "car_info": black honda,
+  "home_city": "Atlanta",
+  "license_plate": "3e35",
+  "license_number": "3445rf33",
+  "credit_card_number": 34545,
+```
+
+**Response**
+```
+{
+  "user":{
+    "first_name": "alan",
+    "last_name": "smith",
+    "phone": "4043234546",
+    "car_info": black honda,
+    "home_city": "Atlanta",
+    "license_plate": "3e35",
+    "license_number": "3445rf33",
+    "credit_card_number": 34545,
+    "driver": true
+  }
+}
+```
