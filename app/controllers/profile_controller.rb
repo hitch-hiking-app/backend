@@ -12,7 +12,7 @@ class ProfileController < ApplicationController
     	@user = User.find_by(id: params[:id])
     	@user.update(user_params)
 		@picture = @user.pictures.first
-      	@user_image = @picture.update_attribute(:image, params[:image])
+      	Picture.update(@picture.id, pic_params)
       	if @user.save
         	render "update.json.jbuilder", status: :created
    		else
@@ -26,5 +26,9 @@ class ProfileController < ApplicationController
 					  :password, :email, :phone, :car_info,
 					  :home_city, :license_number, :license_plate,
 					  :credit_card_number
+	end
+
+	def pic_params
+		params.permit :image
 	end
 end
