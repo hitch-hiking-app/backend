@@ -11,10 +11,8 @@ class ProfileController < ApplicationController
   	def update
     	@user = User.find_by(id: params[:id])
     	@user.update(user_params)
-		# binding.pry
-  #     	@user_image = @user.pictures.update(id: params[:id],
-  #     										imageable_id: params[:imageable_id],
-  #     										imageable_type: params[:imageable_type])
+		@picture = @user.pictures.first
+      	@user_image = @picture.update_attribute(:image, params[:image])
       	if @user.save
         	render "update.json.jbuilder", status: :created
    		else
