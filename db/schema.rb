@@ -22,11 +22,12 @@ ActiveRecord::Schema.define(version: 20160428192653) do
     t.string   "destination"
     t.integer  "seats_available"
     t.integer  "seat_price"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.date     "date_leave"
     t.date     "date_arrive"
     t.text     "comments"
+    t.string   "seat",            default: [],              array: true
   end
 
   create_table "pictures", force: :cascade do |t|

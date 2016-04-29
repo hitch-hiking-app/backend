@@ -34,7 +34,6 @@ class HostsController < ApplicationController
         # destination: params[:destination], seats_available: params[:seats_available],
         # seat_price: params[:seat_price], date_leave: params[:date_leave],
         # date_arrive: params[:date_arrive], comments: params[:comments])
-
       #@user.update(user_params)
         # @user.update(credit_card_number: params[:credit_card_number],
         # name_on_card: params[:name_on_card], expiration_date: params[:expiration_date],
