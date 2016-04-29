@@ -1,5 +1,5 @@
 class HostsController < ApplicationController
-  before_action :authenticate!, except: [:index, :show]
+  before_action :authenticate!, except: [:index, :show, :update]
 
   def index
     @hosts = Host.all
@@ -13,7 +13,7 @@ class HostsController < ApplicationController
                                       seat_price: params[:seat_price], date_leave: params[:date_leave],
                                       date_arrive: params[:date_arrive], comments: params[:comments])
     if @host.save
-       # UserWelcome.send_signup_email(@host.user.email).deliver ##UserNotifier
+       # send email here
        render "create.json.jbuilder", status: :created
     else
       render json: { errors: @host.errors.full_messages }, status: :unprocessable_entity
@@ -27,12 +27,19 @@ class HostsController < ApplicationController
 
   def update
     @host = Host.find_by(id: params[:id])
-    if current_user.id == @host.user_id
-      @host.update(departing_city: params[:departing_city],
-      destination: params[:destination], seats_available: params[:seats_available],
-      seat_price: params[:seat_price], date_leave: params[:date_leave],
-      date_arrive: params[:date_arrive], comments: params[:comments])
-         render "update.json.jbuilder", status: :created
+    @user = current_user
+    if @user.id == @host.user_id
+      @host.update(host_params)
+        # @host.update(departing_city: params[:departing_city],
+        # destination: params[:destination], seats_available: params[:seats_available],
+        # seat_price: params[:seat_price], date_leave: params[:date_leave],
+        # date_arrive: params[:date_arrive], comments: params[:comments])
+
+      #@user.update(user_params)
+        # @user.update(credit_card_number: params[:credit_card_number],
+        # name_on_card: params[:name_on_card], expiration_date: params[:expiration_date],
+        # security_code: params[:security_code])
+         render "update.json.jbuilder", status: :ok
     else
       render json: { errors: @host.errors.full_messages }, status: :unprocessable_entity
     end
@@ -50,24 +57,14 @@ class HostsController < ApplicationController
     end
   end
 
+  def host_params
+    params.permit :departing_city, :destination, :seats_available,
+                  :seat_price, :date_leave, :date_arrive, :comments
+  end
+
+  def user_params
+    params.permit :credit_card_number, :name_on_card,
+                  :expiration_date, :security_code
+  end
+
 end
-
-
-#     logins POST   /logins(.:format)   logins#create
-#   register POST   /register(.:format) registrations#create
-# host_index GET    /host(.:format)     host#index
-#            POST   /host(.:format)     host#create
-#       host GET    /host/:id(.:format) host#show
-#            PATCH  /host/:id(.:format) host#update
-#            PUT    /host/:id(.:format) host#update
-#            DELETE /host/:id(.:format) host#destroy
-
-  #  id
-  #  user_id
-  #  departing_city
-  #  destination
-  #  seats_available
-  #  seat_price
-  #  date_leave
-  #  date_arrive
-  #  comments
