@@ -8,4 +8,7 @@ json.hosts do
                        :destination, :seats_available,
                        :seat_price, :date_leave,
                        :date_arrive, :comments
+  #json.credit_card_number @user.credit_card_number
+  #json.name_on_card @user.name_on_card
+  #json.expiration_date @user.security_code
 end
