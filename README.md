@@ -7,9 +7,12 @@
 ## API Documentation for Hitch-hiking/Carpool App
 
 ## Table of Contents
-1. [Registration](#registration)
+1. [User Model](#user-model)
+2. [Trip Model](#trip-model)
+3. [Profile Model](#profile-model)
+4. [Picture Model](#picture-model)
 
-## **Registration**
+## **User Model**
 
 #### POST /register
 
