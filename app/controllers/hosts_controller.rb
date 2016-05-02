@@ -1,5 +1,5 @@
 class HostsController < ApplicationController
-  before_action :authenticate!, except: [:index, :show, :update]
+  before_action :authenticate!, except: [:index, :show]
 
   def index
     @hosts = Host.all
@@ -25,24 +25,46 @@ class HostsController < ApplicationController
     render json: { hosts: @host.as_json }
   end
 
+
   def update
     @host = Host.find_by(id: params[:id])
-    @user = current_user
-    if @user.id == @host.user_id
-      @host.update(host_params)
-        # @host.update(departing_city: params[:departing_city],
-        # destination: params[:destination], seats_available: params[:seats_available],
-        # seat_price: params[:seat_price], date_leave: params[:date_leave],
-        # date_arrive: params[:date_arrive], comments: params[:comments])
-      #@user.update(user_params)
-        # @user.update(credit_card_number: params[:credit_card_number],
-        # name_on_card: params[:name_on_card], expiration_date: params[:expiration_date],
-        # security_code: params[:security_code])
-         render "update.json.jbuilder", status: :ok
+    if current_user.id == @host.user_id
+      if @host.update(host_params)
+        render "update.json.jbuilder", status: :ok
+      else
+        render json: { error: "Unable to update trip." }
+      end
     else
       render json: { errors: @host.errors.full_messages }, status: :unprocessable_entity
     end
   end
+
+  def add
+    @host = Host.find(id: params[:id])
+    @rider = @host.riders.new(user_id: current_user.id)
+    if @rider.save
+      @host.update(host_params)
+    else
+       render json: { error: @rider.errors.full_messages }, status: :conflict
+     end
+  end
+
+  # def update
+  #   @host = Host.find_by(id: params[:id])
+  #   if @host.update(host_params)
+  #       # @host.update(departing_city: params[:departing_city],
+  #       # destination: params[:destination], seats_available: params[:seats_available],
+  #       # seat_price: params[:seat_price], date_leave: params[:date_leave],
+  #       # date_arrive: params[:date_arrive], comments: params[:comments])
+  #     current_user.update(user_params)
+  #       # @user.update(credit_card_number: params[:credit_card_number],
+  #       # name_on_card: params[:name_on_card], expiration_date: params[:expiration_date],
+  #       # security_code: params[:security_code])
+  #     render "update.json.jbuilder", status: :ok
+  #   else
+  #     render json: { errors: @host.errors.full_messages }, status: :unprocessable_entity
+  #   end
+  # end
 
   def destroy
     @host = Host.find_by(id: params[:id])
