@@ -16,18 +16,4 @@ json.user do
   json.pictures @user.pictures do |picture|
     json.image_url picture.image.url
   end
-	  json.host @host do |host|
-      json.host_id host.id
-  		json.driver host.user_id
-  		json.departing_city host.departing_city
- 		json.destination host.destination
-  		json.seats_available host.seats_available
-  		json.seat_price host.seat_price
-		json.date_leave host.date_leave
-	  	json.date_arrive host.date_arrive
-  		json.comments host.comments
-	  end
 end
-
-
-

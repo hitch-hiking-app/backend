@@ -227,7 +227,7 @@ Params:
   * comments: text
 
 
-Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+Returns 200 Updated on Success and 422 Unprocessable Entity in case of failure.
 
 #### DELETE /hosts/:id
 
@@ -274,7 +274,7 @@ Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
 ```
 
 
-#### GET /profile
+#### GET /profile/:id
 
 *This route is present for the profile of logged in users.*
 
@@ -288,6 +288,8 @@ Params:
   * email: string
   * password: string
   * auth_token: string
+
+Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
 
 **Request:**
 
@@ -309,6 +311,16 @@ Params:
     "email": "some11one1111131142111111111111413314@email.com",
     "auth_token": "203c7eb41a80cbb5398cc6b6db22ccc3",
     "driver": false,
+    "phone": 7701235678,
+    "car_info": 2010 Generic Car Black,
+    "home_city": Atlanta, GA,
+    "license_plate": 789162w,
+    "license_number": 124809248091,
+    "credit_card_number": 124212141241,
+    "pictures": [
+      {
+        "image_url": "http://s3.amazonaws.com/lifteri/pictures/images/000/000/001/original/Screen_Shot_2016-04-17_at_2.34.38_PM.png?1461857236"
+      }
     "host": [
       {
         "host": 54,
@@ -333,5 +345,183 @@ Params:
     ]
   }
 ```
-=======
+
+#### PUT /users/:id
+
+*This route is present to update user information when hosting a trip*
+
+PUT https://salty-river-31528.herokuapp.com/users/:id
+
+Params:
+  * first_name: string
+  * last_name: string
+  * phone: integer
+  * car_info: integer
+  * home_city: date
+  * license_plate: date
+  * license_number: text
+  * credit_card_number
+
+
+Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+
+**Request**
+```
+  "first_name": "alan",
+  "last_name": "smith",
+  "phone": "4043234546",
+  "car_info": black honda,
+  "home_city": "Atlanta",
+  "license_plate": "3e35",
+  "license_number": "3445rf33",
+  "credit_card_number": 34545,
+```
+
+**Response**
+```
+{
+  "user":{
+    "first_name": "alan",
+    "last_name": "smith",
+    "phone": "4043234546",
+    "car_info": black honda,
+    "home_city": "Atlanta",
+    "license_plate": "3e35",
+    "license_number": "3445rf33",
+    "credit_card_number": 34545,
+    "driver": true
+  }
+}
+```
+
+#### GET /profile/:id
+
+*This route is present for the viewing profiles of logged in users.*
+
+GET https://salty-river-31528.herokuapp.com/profile/:user_id
+
+Params:
+  * user_name: string
+  * id: integer
+  * first_name: string
+  * last_name: string
+  * email: string
+  * password: string
+  * auth_token: string
+
 Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+
+**Request:**
+
+```
+{
+  "Auth-Token": "203c7eb41a80cbb5398cc6b6db22ccc3"
+}
+```
+
+**Response:**
+
+```
+{
+  "user": {
+    "id": 54,
+    "user_name": "someone11234",
+    "first_name": "some",
+    "last_name": "one",
+    "email": "some11one1111131142111111111111413314@email.com",
+    "auth_token": "203c7eb41a80cbb5398cc6b6db22ccc3",
+    "driver": false,
+    "phone": 7701235678,
+    "car_info": 2010 Generic Car Black,
+    "home_city": Atlanta, GA,
+    "license_plate": 789162w,
+    "license_number": 124809248091,
+    "credit_card_number": 124212141241,
+    "pictures": [
+      {
+        "image_url": "http://s3.amazonaws.com/lifteri/pictures/images/000/000/001/original/Screen_Shot_2016-04-17_at_2.34.38_PM.png?1461857236"
+      }
+    "host": [
+      {
+        "host": 54,
+        "departing_city": "vietnam",
+        "destination": "alaska",
+        "seats_available": 10,
+        "seat_price": 10,
+        "date_leave": "2016-01-01",
+        "date_arrive": "2016-02-12",
+        "comments": "hey"
+      },
+      {
+        "host": 55,
+        "departing_city": "georgia",
+        "destination": "colorado",
+        "seats_available": 10,
+        "seat_price": 10,
+        "date_leave": "2016-01-01",
+        "date_arrive": "2016-02-12",
+        "comments": "hey"
+      }
+    ]
+  }
+```
+
+#### PUT /profile/:id
+
+*This route is present for editing profiles of logged in users.*
+
+PUT https://salty-river-31528.herokuapp.com/profile/:user_id
+
+Params:
+  * user_name: string
+  * id: integer
+  * first_name: string
+  * last_name: string
+  * email: string
+  * password: string
+  * auth_token: string
+  * driver: true,
+  * phone: 7701234567,
+  * car_info: 2010 Generic Car,
+  * home_city: Atlanta, GA,
+  * license_plate: JOE 1234,
+  * license_number: 12345678,
+  * credit_card_number: 12345677890,
+  * pictures: [www.picture.com]
+
+Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+
+**Request:**
+
+```
+{
+  "Auth-Token": "203c7eb41a80cbb5398cc6b6db22ccc3"
+}
+```
+
+**Response:**
+
+```
+{
+  "user": {
+    "id": 58,
+    "user_name": "joeschmoe123",
+    "first_name": joe,
+    "last_name": schmoe,
+    "email": "joeschmoe123@email.com",
+    "auth_token": "d0519f72d521331ef633b99c9acf01e3",
+    "driver": true,
+    "phone": 7701234567,
+    "car_info": 2010 Generic Car,
+    "home_city": Atlanta, GA,
+    "license_plate": JOE 1234,
+    "license_number": 12345678,
+    "credit_card_number": 12345677890,
+    "pictures": [
+      {
+        "image_url": "http://s3.amazonaws.com/lifteri/pictures/images/000/000/012/original/Screen_Shot_2016-04-24_at_10.43.29_AM_%282%29.png?1461953510"
+      }
+    ]
+  }
+}
+```
