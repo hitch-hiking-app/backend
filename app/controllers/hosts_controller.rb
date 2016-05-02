@@ -42,7 +42,6 @@ class HostsController < ApplicationController
   def add
     @host = Host.find_by(id: params[:id])
     @rider = @host.seats.new(user_id: current_user.id)
-    binding.pry
     if @rider.save
       @host.update(seats_available: params[:seats_available])
     else

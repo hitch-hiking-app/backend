@@ -310,6 +310,28 @@ Params:
 
 Returns 200 Updated on Success and 422 Unprocessable Entity in case of failure.
 
+#### Trip Update - Add a rider to a trip
+
+#### PUT riders/:id
+
+*This route is present to update the seats available and add a rider to a trip*
+
+PUT https://salty-river-31528.herokuapp.com/riders/:id
+
+Params:
+  * seats_available: integer
+
+Returns 202 Accepted on Success and 409 Conflict in case of failure
+
+**Response**
+```
+{
+  "hosts": {
+    "seats_available": 4
+  }
+}
+```
+
 #### Trip Delete
 
 #### DELETE /hosts/:id
@@ -358,7 +380,7 @@ Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
 
 ## **Profile Model**
 
-#### Pofile Show
+#### Profile Show
 
 #### GET /profile/:id
 
