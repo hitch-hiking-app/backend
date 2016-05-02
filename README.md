@@ -12,9 +12,16 @@
   * [Users Login](#users-login)
   * [Users Trip Update](#users-trip-update)
 2. [Trip Model](#trip-model)
+  * [Trip Registration](#trip-registration)
+  * [Trip Index](#trip-index)
+  * [Trip Update](#trip-update)
+  * [Trip Delete](#trip-delete)
 3. [Profile Model](#profile-model)
-
+  * [Profile Show](#profile-show)
+  * [Profile Edit](#profile-edit)
+  
 ## **User Model**
+
 #### Users Registration
 
 #### POST /register
@@ -161,6 +168,8 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 
 ## **Trip Model**
 
+#### Trips Registration
+
 #### POST /hosts
 
 *This route is present to create a new trip to host.*
@@ -211,6 +220,9 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
   }
 }
 ```
+
+#### Trips Index
+
 #### GET /hosts
 
 *This route is present to get a list of all the trips being hosted.*
@@ -249,6 +261,8 @@ Returns 200 OK on success.
 }
 ```
 
+#### Trip Show
+
 #### GET /hosts/:id
 
 *This route is present to show a trip being hosted.*
@@ -275,6 +289,9 @@ Returns 200 OK on success.
   }
 }
 ```
+
+#### Trip Update
+
 #### PUT /hosts/:id
 
 *This route is present to update and existing trip*
@@ -292,6 +309,8 @@ Params:
 
 
 Returns 200 Updated on Success and 422 Unprocessable Entity in case of failure.
+
+#### Trip Delete
 
 #### DELETE /hosts/:id
 
@@ -339,77 +358,7 @@ Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
 
 ## **Profile Model**
 
-#### GET /profile/:id
-
-*This route is present for the profile of logged in users.*
-
-GET https://salty-river-31528.herokuapp.com/profile/:user_id
-
-Params:
-  * user_name: string
-  * id: integer
-  * first_name: string
-  * last_name: string
-  * email: string
-  * password: string
-  * auth_token: string
-
-Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
-
-**Request:**
-
-```
-{
-  "Auth-Token": "203c7eb41a80cbb5398cc6b6db22ccc3"
-}
-```
-
-**Response:**
-
-```
-{
-  "user": {
-    "id": 54,
-    "user_name": "someone11234",
-    "first_name": "some",
-    "last_name": "one",
-    "email": "some11one1111131142111111111111413314@email.com",
-    "auth_token": "203c7eb41a80cbb5398cc6b6db22ccc3",
-    "driver": false,
-    "phone": 7701235678,
-    "car_info": 2010 Generic Car Black,
-    "home_city": Atlanta, GA,
-    "license_plate": 789162w,
-    "license_number": 124809248091,
-    "credit_card_number": 124212141241,
-    "pictures": [
-      {
-        "image_url": "http://s3.amazonaws.com/lifteri/pictures/images/000/000/001/original/Screen_Shot_2016-04-17_at_2.34.38_PM.png?1461857236"
-      }
-    "host": [
-      {
-        "host": 54,
-        "departing_city": "vietnam",
-        "destination": "alaska",
-        "seats_available": 10,
-        "seat_price": 10,
-        "date_leave": "2016-01-01",
-        "date_arrive": "2016-02-12",
-        "comments": "hey"
-      },
-      {
-        "host": 55,
-        "departing_city": "georgia",
-        "destination": "colorado",
-        "seats_available": 10,
-        "seat_price": 10,
-        "date_leave": "2016-01-01",
-        "date_arrive": "2016-02-12",
-        "comments": "hey"
-      }
-    ]
-  }
-```
+#### Pofile Show
 
 #### GET /profile/:id
 
@@ -482,6 +431,7 @@ Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
     ]
   }
 ```
+#### Profile Edit
 
 #### PUT /profile/:id
 
