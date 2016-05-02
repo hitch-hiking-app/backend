@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :hosts, except: [:new, :edit]
   resources :profile, only: [:show, :update]
   put "users/:id", to: "users#update"
-  put "hosts/:id", to: "hosts#add"
+  put "riders/:id", to: "hosts#add"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

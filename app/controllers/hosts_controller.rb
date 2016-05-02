@@ -40,10 +40,11 @@ class HostsController < ApplicationController
   end
 
   def add
-    @host = Host.find(id: params[:id])
-    @rider = @host.riders.new(user_id: current_user.id)
+    @host = Host.find_by(id: params[:id])
+    @rider = @host.seats.new(user_id: current_user.id)
+    binding.pry
     if @rider.save
-      @host.update(host_params)
+      @host.update(seats_available: params[:seats_available])
     else
        render json: { error: @rider.errors.full_messages }, status: :conflict
      end
