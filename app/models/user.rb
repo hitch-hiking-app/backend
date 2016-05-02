@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   belongs_to :profile
-  has_many :hosts
+  has_many :hosts, through: :seats
   has_many :pictures, as: :imageable
+  has_many :seats
   has_secure_password
   #has_many :pictures, as: :imageable
   #has_attached_file :image
