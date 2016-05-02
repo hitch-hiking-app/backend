@@ -394,11 +394,11 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 }
 ```
 
-#### PUT /profile/:id
+#### GET /profile/:id
 
-*This route is present for the profile editing of logged in users.*
+*This route is present for the viewing profiles of logged in users.*
 
-PUT https://salty-river-31528.herokuapp.com/profile/:user_id
+GET https://salty-river-31528.herokuapp.com/profile/:user_id
 
 Params:
   * user_name: string
@@ -464,4 +464,64 @@ Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
       }
     ]
   }
+```
+
+#### PUT /profile/:id
+
+*This route is present for editing profiles of logged in users.*
+
+PUT https://salty-river-31528.herokuapp.com/profile/:user_id
+
+Params:
+  * user_name: string
+  * id: integer
+  * first_name: string
+  * last_name: string
+  * email: string
+  * password: string
+  * auth_token: string
+  * driver: true,
+  * phone: 7701234567,
+  * car_info: 2010 Generic Car,
+  * home_city: Atlanta, GA,
+  * license_plate: JOE 1234,
+  * license_number: 12345678,
+  * credit_card_number: 12345677890,
+  * pictures: [www.picture.com]
+
+Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+
+**Request:**
+
+```
+{
+  "Auth-Token": "203c7eb41a80cbb5398cc6b6db22ccc3"
+}
+```
+
+**Response:**
+
+```
+{
+  "user": {
+    "id": 58,
+    "user_name": "joeschmoe123",
+    "first_name": joe,
+    "last_name": schmoe,
+    "email": "joeschmoe123@email.com",
+    "auth_token": "d0519f72d521331ef633b99c9acf01e3",
+    "driver": true,
+    "phone": 7701234567,
+    "car_info": 2010 Generic Car,
+    "home_city": Atlanta, GA,
+    "license_plate": JOE 1234,
+    "license_number": 12345678,
+    "credit_card_number": 12345677890,
+    "pictures": [
+      {
+        "image_url": "http://s3.amazonaws.com/lifteri/pictures/images/000/000/012/original/Screen_Shot_2016-04-24_at_10.43.29_AM_%282%29.png?1461953510"
+      }
+    ]
+  }
+}
 ```
