@@ -1,11 +1,12 @@
-## Lifteri
-
-[![Lifteri Tests][lifteri-ci-image]][lifteri-ci]
-
-Most awesome Hitch-hiking App.
 
 [lifteri-ci]: https://travis-ci.org/hitch-hiking-app/backend.svg?branch=master
 [lifteri-ci-image]: https://travis-ci.org/hitch-hiking-app/backend.svg?branch=master
+
+# Lifteri [![Lifteri Tests][lifteri-ci-image]][lifteri-ci]
+
+## API Documentation for Hitch-hiking/Carpool App
+
+## Table of Contents
 
 #### POST /register
 
@@ -33,7 +34,7 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
   "last_name": "Schmoe",
   "email": "joe@email.com",
   "password": "password"
-  "picture": "image."
+  "image": "image."
 }
 ```
 
