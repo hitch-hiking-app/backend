@@ -9,7 +9,8 @@ class RegistrationsController < ApplicationController
     @picture = @user.pictures.new(image: params[:image])
    @user.ensure_auth_token
    if @user.save
-     #UserWelcome.send_signup_email(@user.email).deliver ##UserNotifier
+     mail = UserWelcome.welcome(@user)
+     mail.deliver_now
      render 'create.json.jbuilder', status: :created
    else
      render json: { errors: @user.errors.full_messages },
