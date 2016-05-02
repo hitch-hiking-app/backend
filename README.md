@@ -7,6 +7,9 @@
 ## API Documentation for Hitch-hiking/Carpool App
 
 ## Table of Contents
+1. [Registration](#registration)
+
+## **Registration**
 
 #### POST /register
 
