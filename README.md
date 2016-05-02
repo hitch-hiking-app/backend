@@ -15,7 +15,7 @@
   * [Trip Registration](#trip-registration)
   * [Trip Index](#trip-index)
   * [Trip Update](#trip-update)
-  * [Trip Update Seats Available](#trip-update-seat)
+  * [Trip Update - Add a rider to a trip](#trip-update-seat)
   * [Trip Delete](#trip-delete)
 3. [Profile Model](#profile-model)
   * [Profile Show](#profile-show)
