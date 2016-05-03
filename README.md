@@ -311,7 +311,7 @@ Params:
 
 Returns 200 Updated on Success and 422 Unprocessable Entity in case of failure.
 
-#### Trip Update Riders
+#### Trip Rider Update
 
 #### PUT /riders/:id
 
