@@ -311,9 +311,9 @@ Params:
 
 Returns 200 Updated on Success and 422 Unprocessable Entity in case of failure.
 
-#### Trip Update Rider
+#### Trip Update Riders
 
-#### PUT riders/:id
+#### PUT /riders/:id
 
 *This route is present to update the seats available and add a rider to a trip*
 
