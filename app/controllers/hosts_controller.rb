@@ -7,11 +7,12 @@ class HostsController < ApplicationController
   end
 
   def create
-    @host = current_user.hosts.create(user_id: session[:user_id], id: params[:id],
+    @host = current_user.hosts.create(user_id: current_user.id, id: params[:id],
                                       departing_city: params[:departing_city],
                                       destination: params[:destination], seats_available: params[:seats_available],
                                       seat_price: params[:seat_price], date_leave: params[:date_leave],
                                       date_arrive: params[:date_arrive], comments: params[:comments])
+    binding.pry
     if @host.save
        # send email here
        render "create.json.jbuilder", status: :created
@@ -41,6 +42,7 @@ class HostsController < ApplicationController
 
   def add
     @host = Host.find_by(id: params[:id])
+    binding.pry
     @rider = @host.seats.new(user_id: current_user.id)
     if @rider.save
       @host.update(seats_available: params[:seats_available])
