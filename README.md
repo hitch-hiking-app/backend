@@ -15,6 +15,7 @@
   * [Trip Registration](#trip-registration)
   * [Trip Index](#trip-index)
   * [Trip Update](#trip-update)
+  * [Trip Update Rider](#trip-rider)
   * [Trip Delete](#trip-delete)
 3. [Profile Model](#profile-model)
   * [Profile Show](#profile-show)
@@ -310,7 +311,7 @@ Params:
 
 Returns 200 Updated on Success and 422 Unprocessable Entity in case of failure.
 
-#### Trip Update - Add a rider to a trip
+#### Trip Update Rider
 
 #### PUT riders/:id
 
