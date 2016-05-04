@@ -32,18 +32,26 @@
 
 POST https://salty-river-31528.herokuapp.com/register
 
-Params:
-  * user_name: string
-  * id: integer
-  * first_name: string
-  * last_name: string
-  * email: string
-  * password: string
-  * auth_token: string
+**Params:**
 
-Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+Name | Type | Description
+--- | --- | ---
+user_name | string | **Required.** Unique username for a new user.
+password | string | **Required.** Password provided must be at least 6 characters long.
+first_name | string | **Required.** First name of the user.
+last_name | string | **Required.** Last name of the user.
+email | string | **Required.** User's contact email.
+password | string | **Required.** User's password.
+image | string | **Optional.** User's profile picture image link.
 
-**Request:**
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
+
+**Example Request:**
 
 ```
 {
@@ -56,7 +64,7 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 }
 ```
 
-**Response:**
+**Example Response:**
 
 ```
 {
@@ -296,7 +304,7 @@ Returns 200 OK on success.
 
 #### PUT /hosts/:id
 
-*This route is present to update and existing trip*
+*This route is present to update trip information of an existing user*
 
 PUT https://salty-river-31528.herokuapp.com/hosts/:id
 
@@ -523,7 +531,7 @@ Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
 
 *This route is present for the deleting of a users profile.*
 
-DELETE PUT https://salty-river-31528.herokuapp.com/profile/:user_id
+DELETE https://salty-river-31528.herokuapp.com/profile/:user_id
 
 Params: None
 
