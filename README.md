@@ -32,18 +32,21 @@
 
 POST https://salty-river-31528.herokuapp.com/register
 
-Params:
-  * user_name: string
-  * id: integer
-  * first_name: string
-  * last_name: string
-  * email: string
-  * password: string
-  * auth_token: string
+**Params:**
+
+Name | Type | Description
+--- | --- | ---
+user_name | string | **Required.** Unique username for a new user.
+password | string | **Required.** Password provided must be at least 6 characters long.
+first_name | string | **Required.** First name of the user.
+last_name | string | **Required.** Last name of the user.
+email | string | **Required.** User's contact email.
+password | string | **Required.** User's password.
+image | string | **Optional.** User's profile picture image link.
 
 Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 
-**Request:**
+**Example Request:**
 
 ```
 {
