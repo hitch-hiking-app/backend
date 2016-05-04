@@ -20,6 +20,7 @@
 3. [Profile Model](#profile-model)
   * [Profile Show](#profile-show)
   * [Profile Edit](#profile-edit)
+  * [Profile Delete](#profile-delete)
 
 ## **User Model**
 
@@ -515,3 +516,33 @@ Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
   }
 }
 ```
+
+#### Profile Delete
+
+#### DELETE profile/:id
+
+*This route is present for the deleting of a users profile.*
+
+DELETE PUT https://salty-river-31528.herokuapp.com/profile/:user_id
+
+Params: None
+
+Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+
+**Request:**
+
+```
+{
+  "Auth-Token": "203c7eb41a80cbb5398cc6b6db22ccc3"
+}
+```
+
+**Reponse:**
+
+```
+{
+  "message": "Profile deleted."
+}
+```
+
+
