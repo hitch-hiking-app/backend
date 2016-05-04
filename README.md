@@ -64,7 +64,7 @@ Code | Type | Description
 }
 ```
 
-**Response:**
+**Example Response:**
 
 ```
 {
