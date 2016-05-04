@@ -91,11 +91,14 @@ Code | Type | Description
 
 POST https://salty-river-31528.herokuapp.com/logins
 
+**Params:**
+
 Name | Type | Description
 --- | --- | ---
 user_name | string | **Required.** User's username as specified in the database.
 password | string | **Required.** User's password as specified in the database.
 
+**Status Codes**
 
 Code | Type | Description
 ---|---|---
@@ -134,7 +137,19 @@ Code | Type | Description
 
 PUT https://salty-river-31528.herokuapp.com/users/:id
 
-Params:
+**Params:**
+
+Name | Type | Description
+--- | --- | ---
+username | string | **Required.** Unique username for a new user.
+password | string | **Required.** Password provided must be at least 6 characters long.
+first_name | string | **Required.** First name of the user.
+last_name | string | **Required.** Last name of the user.
+email | string | **Required.** User's contact email.
+address | string | **Required.** Address of the user's desired location.
+phone_number | string | **Optional.** User's contact number.
+avatar | string | **Optional.** User's profile picture image link.
+
   * first_name: string
   * last_name: string
   * phone: integer
@@ -143,6 +158,8 @@ Params:
   * license_plate: date
   * license_number: text
   * credit_card_number
+
+**Status Codes**
 
 Code | Type | Description
 ---|---|---
@@ -197,6 +214,8 @@ Params:
   * date_arrive: date
   * comments: text
 
+**Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Server has processed the request and has successfully updated the user.
@@ -245,6 +264,8 @@ Code | Type | Description
 
 GET https://salty-river-31528.herokuapp.com/hosts
 
+**Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Server has processed the request and has successfully updated the user.
@@ -287,6 +308,8 @@ Code | Type | Description
 
 GET https://salty-river-31528.herokuapp.com/hosts/:id
 
+**Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Server has processed the request and has successfully updated the user.
@@ -327,6 +350,8 @@ Params:
   * date_arrive: date
   * comments: text
 
+**Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Server has processed the request and has successfully updated the user.
@@ -342,6 +367,8 @@ PUT https://salty-river-31528.herokuapp.com/riders/:id
 
 Params:
   * seats_available: integer
+
+**Status Codes**
 
 Code | Type | Description
 ---|---|---
@@ -367,6 +394,8 @@ DELETE https://salty-river-31528.herokuapp.com/hosts/:id
 
 Params:
 * id: integer - this comes from the url (:id)
+
+**Status Codes**
 
 Code | Type | Description
 ---|---|---
@@ -422,6 +451,8 @@ Params:
   * email: string
   * password: string
   * auth_token: string
+
+**Status Codes**
 
 Code | Type | Description
 ---|---|---
@@ -507,6 +538,8 @@ Params:
   * credit_card_number: 12345677890,
   * pictures: [www.picture.com]
 
+**Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Server has processed the request and has successfully updated the user.
@@ -556,6 +589,8 @@ Code | Type | Description
 DELETE https://salty-river-31528.herokuapp.com/profile/:user_id
 
 Params: None
+
+**Status Codes**
 
 Code | Type | Description
 ---|---|---
