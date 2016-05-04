@@ -296,7 +296,7 @@ Returns 200 OK on success.
 
 #### PUT /hosts/:id
 
-*This route is present to update and existing trip*
+*This route is present to update trip information of an existing user*
 
 PUT https://salty-river-31528.herokuapp.com/hosts/:id
 
@@ -523,7 +523,7 @@ Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
 
 *This route is present for the deleting of a users profile.*
 
-DELETE PUT https://salty-river-31528.herokuapp.com/profile/:user_id
+DELETE https://salty-river-31528.herokuapp.com/profile/:user_id
 
 Params: None
 
