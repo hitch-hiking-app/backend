@@ -41,12 +41,16 @@ class HostsController < ApplicationController
 
   def add
     @host = Host.find_by(id: params[:id])
+    if current_user.id != @host.user_id
+
     @seat = @host.seats.new(user_id: current_user.id)
     if @seat.save
       @host.update(seats_available: params[:seats_available])
     else
        render json: { error: @seats.errors.full_messages }, status: :conflict
      end
+   else render json: { error: "You cannont join the trip again!" }
+   end
   end
 
   # def update
