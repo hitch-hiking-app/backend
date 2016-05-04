@@ -44,7 +44,12 @@ email | string | **Required.** User's contact email.
 password | string | **Required.** User's password.
 image | string | **Optional.** User's profile picture image link.
 
-Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 **Example Request:**
 
