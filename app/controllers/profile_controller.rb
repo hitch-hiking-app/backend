@@ -1,5 +1,5 @@
 class ProfileController < ApplicationController
-	before_action :authenticate!, only: [:update]
+	before_action :authenticate!, only: [:update, :destroy]
 
 	def show
 		@user = User.find_by(id: params[:id])
@@ -18,8 +18,20 @@ class ProfileController < ApplicationController
  		else
     		render json: { errors: @user.errors.full_messages },
     		status: :unprocessable_entity
-  	end
+  		end
 	end
+
+
+  def destroy
+    @profile = User.find_by(id: params[:id])
+    if @profile.destroy
+      render json: { message: "Profile deleted." },
+      status: :accepted
+    else
+      render json: { error: "Invalid User."},
+      status: :unauthorized
+    end
+  end
 
 	def user_params
 	params.permit :user_name, :first_name, :last_name,
