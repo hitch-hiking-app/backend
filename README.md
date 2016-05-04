@@ -91,16 +91,16 @@ Code | Type | Description
 
 POST https://salty-river-31528.herokuapp.com/logins
 
-Params:
-  * user_name: string
-  * id: integer
-  * first_name: string
-  * last_name: string
-  * email: string
-  * password: string
-  * auth_token: string
+Name | Type | Description
+--- | --- | ---
+user_name | string | **Required.** User's username as specified in the database.
+password | string | **Required.** User's password as specified in the database.
 
-Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 **Request:**
 
@@ -144,8 +144,10 @@ Params:
   * license_number: text
   * credit_card_number
 
-
-Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 **Request**
 ```
@@ -195,7 +197,11 @@ Params:
   * date_arrive: date
   * comments: text
 
-Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
+
 
 **Request:**
 
@@ -239,7 +245,9 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 
 GET https://salty-river-31528.herokuapp.com/hosts
 
-Returns 200 OK on success.
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
 
 **Response**
 ```
@@ -279,7 +287,9 @@ Returns 200 OK on success.
 
 GET https://salty-river-31528.herokuapp.com/hosts/:id
 
-Returns 200 OK on success.
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
 
 **Response**
 ```
@@ -317,8 +327,10 @@ Params:
   * date_arrive: date
   * comments: text
 
-
-Returns 200 Updated on Success and 422 Unprocessable Entity in case of failure.
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 #### Trip Rider
 
@@ -331,7 +343,10 @@ PUT https://salty-river-31528.herokuapp.com/riders/:id
 Params:
   * seats_available: integer
 
-Returns 202 Accepted on Success and 409 Conflict in case of failure
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 **Response**
 ```
@@ -353,9 +368,10 @@ DELETE https://salty-river-31528.herokuapp.com/hosts/:id
 Params:
 * id: integer - this comes from the url (:id)
 
-
-Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
-
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 **Response**
 ```
@@ -407,7 +423,10 @@ Params:
   * password: string
   * auth_token: string
 
-Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 **Request:**
 
@@ -488,7 +507,10 @@ Params:
   * credit_card_number: 12345677890,
   * pictures: [www.picture.com]
 
-Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 **Request:**
 
@@ -535,7 +557,10 @@ DELETE https://salty-river-31528.herokuapp.com/profile/:user_id
 
 Params: None
 
-Returns 201 Updated on Success and 422 Unprocessable Entity in case of failure.
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 **Request:**
 
