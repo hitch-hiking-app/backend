@@ -143,19 +143,13 @@ Name | Type | Description
 --- | --- | ---
 first_name | string | **Optional.** First name of the user.
 last_name | string | **Optional.** Last name of the user.
-email | string | **Optional.** User's contact email.
-address | string | **Optional.** Address of the user's desired location.
-phone | string | **Optional.** User's contact number.
-avatar | string | **Optional.** User's profile picture image link.
-
-  * first_name: string
-  * last_name: string
-  * phone: integer
-  * car_info: integer
-  * home_city: date
-  * license_plate: date
-  * license_number: text
-  * credit_card_number
+phone | integer | **Optional.** User's contact number.
+home_city | string | **Optional.** User's credit card number.
+car_info | string | **Optional.** User's car information.
+license_plate | string | **Optional.** User's profile picture image link.
+license_number | string | **Optional.** User's license plate number.
+credit_card_number | string | **Optional.** User's license plate number.
+driver | boolean | This sets a drivers status from false to true.
 
 **Status Codes**
 
@@ -203,14 +197,17 @@ Code | Type | Description
 
 POST https://salty-river-31528.herokuapp.com/hosts
 
-Params:
-  * departing_city: string
-  * destination: string
-  * seats_available: integer
-  * seat_price: integer
-  * date_leave: date
-  * date_arrive: date
-  * comments: text
+**Params:**
+
+Name | Type | Description
+--- | --- | ---
+departing_city | string | **Required.** Driver's departing city.
+destination | string | **Required.** Driver's destination city.
+seats_available | integer | **Required.** Driver's must input available seats in vehicle except his own.
+seat_price | integer | **Required.** Driver's are allowed to set a price per seat.
+date_leave | date | **Required.** Driver's must set a departing date.
+date_arrive | date | **Required.** Driver's must set an arrival date.
+comments | text | **Optional.** Driver's are allowed to leave comments for other users.
 
 **Status Codes**
 
@@ -339,7 +336,7 @@ Code | Type | Description
 
 PUT https://salty-river-31528.herokuapp.com/hosts/:id
 
-Params:
+**Params:**
   * departing_city: string
   * destination: string
   * seats_available: integer
@@ -363,7 +360,7 @@ Code | Type | Description
 
 PUT https://salty-river-31528.herokuapp.com/riders/:id
 
-Params:
+**Params:**
   * seats_available: integer
 
 **Status Codes**
@@ -390,7 +387,7 @@ Code | Type | Description
 
 DELETE https://salty-river-31528.herokuapp.com/hosts/:id
 
-Params:
+**Params:**
 * id: integer - this comes from the url (:id)
 
 **Status Codes**
@@ -441,7 +438,7 @@ Code | Type | Description
 
 GET https://salty-river-31528.herokuapp.com/profile/:user_id
 
-Params:
+**Params:**
   * user_name: string
   * id: integer
   * first_name: string
@@ -519,7 +516,7 @@ Code | Type | Description
 
 PUT https://salty-river-31528.herokuapp.com/profile/:user_id
 
-Params:
+**Params:**
   * user_name: string
   * id: integer
   * first_name: string
@@ -586,7 +583,7 @@ Code | Type | Description
 
 DELETE https://salty-river-31528.herokuapp.com/profile/:user_id
 
-Params: None
+**Params:** None
 
 **Status Codes**
 
