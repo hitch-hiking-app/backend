@@ -7,11 +7,11 @@ class HostsController < ApplicationController
   end
 
   def create
-    @host = current_user.hosts.create(user_id: current_user.id, id: params[:id],
-                                      departing_city: params[:departing_city],
-                                      destination: params[:destination], seats_available: params[:seats_available],
-                                      seat_price: params[:seat_price], date_leave: params[:date_leave],
-                                      date_arrive: params[:date_arrive], comments: params[:comments])
+    @host = current_user.hosts.new(departing_city: params[:departing_city],
+                                   destination: params[:destination], seats_available: params[:seats_available],
+                                   seat_price: params[:seat_price], date_leave: params[:date_leave],
+                                   date_arrive: params[:date_arrive], comments: params[:comments])
+
     if @host.save
        # send email here
        render "create.json.jbuilder", status: :created
@@ -41,11 +41,11 @@ class HostsController < ApplicationController
 
   def add
     @host = Host.find_by(id: params[:id])
-    @rider = @host.seats.new(user_id: current_user.id)
-    if @rider.save
+    @seat = @host.seats.new(user_id: current_user.id)
+    if @seat.save
       @host.update(seats_available: params[:seats_available])
     else
-       render json: { error: @rider.errors.full_messages }, status: :conflict
+       render json: { error: @seats.errors.full_messages }, status: :conflict
      end
   end
 
