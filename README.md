@@ -141,13 +141,11 @@ PUT https://salty-river-31528.herokuapp.com/users/:id
 
 Name | Type | Description
 --- | --- | ---
-username | string | **Required.** Unique username for a new user.
-password | string | **Required.** Password provided must be at least 6 characters long.
-first_name | string | **Required.** First name of the user.
-last_name | string | **Required.** Last name of the user.
-email | string | **Required.** User's contact email.
-address | string | **Required.** Address of the user's desired location.
-phone_number | string | **Optional.** User's contact number.
+first_name | string | **Optional.** First name of the user.
+last_name | string | **Optional.** Last name of the user.
+email | string | **Optional.** User's contact email.
+address | string | **Optional.** Address of the user's desired location.
+phone | string | **Optional.** User's contact number.
 avatar | string | **Optional.** User's profile picture image link.
 
   * first_name: string
