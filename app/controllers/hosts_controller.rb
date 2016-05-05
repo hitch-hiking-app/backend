@@ -48,24 +48,55 @@ class HostsController < ApplicationController
   #    end
   # end
 
+  # def add
+  #   @host = Host.find_by(id: params[:id])
+  #   @rider = @host.seats.all
+  #   @seats = @rider.map {|rider| rider.user_id}
+  #   @seats.push(@host.user_id)
+  #   #@seats_left = @host.seats_available
+  #     if @seats.include?(current_user.id) || @host.seats_available.zero?
+  #       render json: { error: "Sorry, you cannot join this trip." }, status: :forbidden
+  #     else
+  #       @passenger = @host.seats.new(user_id: current_user.id)
+  #       if @passenger.save
+  #         #@host.seats_available -= @host.riders.count
+  #         @seats_left -= @host.riders.count
+  #         #binding.pry
+  #         @host.update(seats_available: @seats_left)
+  #         render "add.json.jbuilder", status: :ok
+  #       else
+  #         render json: { error: @passenger.errors.full_messages }, status: :conflict
+  #       end
+  #     end
+  # end
+
   def add
     @host = Host.find_by(id: params[:id])
     @rider = @host.seats.all
-    @seats = @rider.map {|rider| rider.user_id}
+    @seats = @rider.map { |rider| rider.user_id }
     @seats.push(@host.user_id)
-      if @seats.include?(current_user.id) || @host.seats_available.zero?
+
+      if @seats.include?(current_user.id) || @host.seats_left.zero?
         render json: { error: "Sorry, you cannot join this trip." }, status: :forbidden
       else
         @passenger = @host.seats.new(user_id: current_user.id)
         if @passenger.save
-          @seats_left = @host.seats_available - @host.riders.count
-          @host.update(seats_available: @seats_left)
+          @host.seats_left = @host.seats_available - @host.riders.count
+          @host.update(add_params)
           render "add.json.jbuilder", status: :ok
         else
           render json: { error: @passenger.errors.full_messages }, status: :conflict
         end
       end
   end
+
+  # def update_seats_left
+  #   if @host.seats_left <= @host.seats_available
+  #     return
+  #   else
+  #     @host.seats_left = @host.seats_available
+  #   end
+  # end
 
   def destroy
     @host = Host.find_by(id: params[:id])
@@ -92,7 +123,7 @@ private
   end
 
   def add_params
-    params.permit :seats_available
+    params.permit :seats_left
   end
 
 end
