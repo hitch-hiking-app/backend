@@ -81,8 +81,7 @@ class HostsController < ApplicationController
       else
         @passenger = @host.seats.new(user_id: current_user.id)
         if @passenger.save
-          @host.seats_left = @host.seats_available - @host.riders.count
-          @host.update(add_params)
+          @host.update(seats_left: @host.seats_available - @host.riders.count)
           render "add.json.jbuilder", status: :ok
         else
           render json: { error: @passenger.errors.full_messages }, status: :conflict
@@ -121,9 +120,4 @@ private
     params.permit :credit_card_number, :name_on_card,
                   :expiration_date, :security_code
   end
-
-  def add_params
-    params.permit :seats_left
-  end
-
 end
