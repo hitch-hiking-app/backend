@@ -49,15 +49,10 @@ class HostsController < ApplicationController
   # end
 
   def add
-
-    #@seat_per_passenger = @host.riders.count
-    #@host.riders.count = 1
-
     @host = Host.find_by(id: params[:id])
     @rider = @host.seats.all
     @seats = @rider.map {|rider| rider.user_id}
     @seats.push(@host.user_id)
-    binding.pry
       unless @seats.include?(current_user.id)
         @passenger = @host.seats.new(user_id: current_user.id)
         if @passenger.save
