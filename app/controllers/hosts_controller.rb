@@ -10,7 +10,11 @@ class HostsController < ApplicationController
     @host = current_user.hosts.new(departing_city: params[:departing_city],
                                    destination: params[:destination], seats_available: params[:seats_available],
                                    seat_price: params[:seat_price], date_leave: params[:date_leave],
-                                   date_arrive: params[:date_arrive], comments: params[:comments])
+                                   date_arrive: params[:date_arrive], comments: params[:comments], 
+                                   depart_latitude: params[:depart_latitude], 
+                                   depart_longitude: params[:depart_longitude], 
+                                   destination_latitude: params[:destination_longitude],
+                                   destination_longitude: params[:destination_longitude])
     if @host.save
        # send email here
        render "create.json.jbuilder", status: :created
@@ -107,6 +111,20 @@ class HostsController < ApplicationController
       render json: { error: "Invalid User."},
       status: :unauthorized
     end
+  end
+
+  def departing_search
+    @location = Host.near([params[:depart_latitude], 
+                            params[:depart_longitude]],
+                             params[:radius])
+    render "departing_search.json.jbuilder"
+  end
+
+  def destination_search
+    @location = Host.near([params[:destination_latitude], 
+                            params[:destination_longitude]],
+                            params[:radius])
+    render "destination_search.json.jbuilder"
   end
 
 private

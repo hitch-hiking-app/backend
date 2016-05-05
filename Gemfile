@@ -6,6 +6,8 @@ ruby '2.3.0'
 gem 'rails', '4.2.6'
 # I hate exporting environment variables. Deal with it.
 gem "dotenv-rails"
+# Add geocoder for Google API
+gem 'geocoder'
 # Add aws-sdk for communication with S3
 gem "aws-sdk", '< 2.0'
 # Add paperclip for managing attachments

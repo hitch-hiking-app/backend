@@ -7,5 +7,7 @@ json.host do
   json.extract! @host, :user_id, :id, :departing_city,
                        :destination, :seats_available,
                        :seat_price, :date_leave,
-                       :date_arrive, :comments
+                       :date_arrive, :comments,
+                       :depart_latitude, :depart_longitude,
+                       :destination_latitude, :destination_longitude
 end
