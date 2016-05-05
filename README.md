@@ -105,7 +105,7 @@ Code | Type | Description
 200 | Success | Server has processed the request and has successfully updated the user.
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
-**Request:**
+**Example Request:**
 
 ```
 {
@@ -114,7 +114,7 @@ Code | Type | Description
 }
 ```
 
-**Response:**
+**Example Response:**
 
 ```
 {
@@ -158,7 +158,7 @@ Code | Type | Description
 200 | Success | Server has processed the request and has successfully updated the user.
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
-**Request**
+**Example Request**
 ```
   "first_name": "alan",
   "last_name": "smith",
@@ -170,7 +170,7 @@ Code | Type | Description
   "credit_card_number": 34545,
 ```
 
-**Response**
+**Example Response**
 ```
 {
   "user":{
@@ -217,7 +217,7 @@ Code | Type | Description
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 
-**Request:**
+**Example Request:**
 
 ```
 {
@@ -231,7 +231,7 @@ Code | Type | Description
 }
 ```
 
-**Response:**
+**Example Response:**
 
 ```
 {
@@ -259,13 +259,15 @@ Code | Type | Description
 
 GET https://salty-river-31528.herokuapp.com/hosts
 
+**Params:** *None*
+
 **Status Codes**
 
 Code | Type | Description
 ---|---|---
 200 | Success | Server has processed the request and has successfully updated the user.
 
-**Response**
+**Example Response:**
 ```
 {
   "host": [
@@ -303,13 +305,15 @@ Code | Type | Description
 
 GET https://salty-river-31528.herokuapp.com/hosts/:id
 
+**Params:** *None*
+
 **Status Codes**
 
 Code | Type | Description
 ---|---|---
 200 | Success | Server has processed the request and has successfully updated the user.
 
-**Response**
+**Example Response:**
 ```
 {
   "hosts": {
@@ -337,13 +341,16 @@ Code | Type | Description
 PUT https://salty-river-31528.herokuapp.com/hosts/:id
 
 **Params:**
-  * departing_city: string
-  * destination: string
-  * seats_available: integer
-  * seat_price: integer
-  * date_leave: date
-  * date_arrive: date
-  * comments: text
+
+Name | Type | Description
+--- | --- | ---
+departing_city | string | **Optional.** Driver's departing city.
+destination | string | **Optional.** Driver's destination city.
+seats_available | integer | **Optional.** Driver's must input available seats in vehicle except his own.
+seat_price | integer | **Optional.** Driver's are allowed to set a price per seat.
+date_leave | date | **Optional.** Driver's must set a departing date.
+date_arrive | date | **Optional.** Driver's must set an arrival date.
+comments | text | **Optional.** Driver's are allowed to leave comments for other users.
 
 **Status Codes**
 
@@ -360,8 +367,7 @@ Code | Type | Description
 
 PUT https://salty-river-31528.herokuapp.com/riders/:id
 
-**Params:**
-  * seats_available: integer
+**Params:** *None*
 
 **Status Codes**
 
@@ -370,7 +376,7 @@ Code | Type | Description
 200 | Success | Server has processed the request and has successfully updated the user.
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
-**Response**
+**Example Response:**
 ```
 {
   "hosts": {
@@ -387,8 +393,7 @@ Code | Type | Description
 
 DELETE https://salty-river-31528.herokuapp.com/hosts/:id
 
-**Params:**
-* id: integer - this comes from the url (:id)
+**Params:** *None*
 
 **Status Codes**
 
@@ -397,7 +402,7 @@ Code | Type | Description
 200 | Success | Server has processed the request and has successfully updated the user.
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
-**Response**
+**Example Response:**
 ```
 {
   "departing_city": "Atlanta"
@@ -438,14 +443,7 @@ Code | Type | Description
 
 GET https://salty-river-31528.herokuapp.com/profile/:user_id
 
-**Params:**
-  * user_name: string
-  * id: integer
-  * first_name: string
-  * last_name: string
-  * email: string
-  * password: string
-  * auth_token: string
+**Params:** *None*
 
 **Status Codes**
 
@@ -454,7 +452,7 @@ Code | Type | Description
 200 | Success | Server has processed the request and has successfully updated the user.
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
-**Request:**
+**Example Request:**
 
 ```
 {
@@ -462,7 +460,7 @@ Code | Type | Description
 }
 ```
 
-**Response:**
+**Example Response:**
 
 ```
 {
@@ -517,21 +515,22 @@ Code | Type | Description
 PUT https://salty-river-31528.herokuapp.com/profile/:user_id
 
 **Params:**
-  * user_name: string
-  * id: integer
-  * first_name: string
-  * last_name: string
-  * email: string
-  * password: string
-  * auth_token: string
-  * driver: true,
-  * phone: 7701234567,
-  * car_info: 2010 Generic Car,
-  * home_city: Atlanta, GA,
-  * license_plate: JOE 1234,
-  * license_number: 12345678,
-  * credit_card_number: 12345677890,
-  * pictures: [www.picture.com]
+
+Name | Type | Description
+--- | --- | ---
+user_name | string | **Optional.** Unique username for a new user.
+password | string | **Optional.** Password provided must be at least 6 characters long.
+first_name | string | **Optional.** First name of the user.
+last_name | string | **Optional.** Last name of the user.
+email | string | **Optional.** User's contact email.
+password | string | **Optional.** User's password.
+image | string | **Optional.** User's profile picture image link.
+phone | integer | **Optional.** User's contact number.
+home_city | string | **Optional.** User's credit card number.
+car_info | string | **Optional.** User's car information.
+license_plate | string | **Optional.** User's profile picture image link.
+license_number | string | **Optional.** User's license plate number.
+credit_card_number | string | **Optional.** User's license plate number.
 
 **Status Codes**
 
@@ -540,7 +539,7 @@ Code | Type | Description
 200 | Success | Server has processed the request and has successfully updated the user.
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
-**Request:**
+**Example Request:**
 
 ```
 {
@@ -548,7 +547,7 @@ Code | Type | Description
 }
 ```
 
-**Response:**
+**Example Response:**
 
 ```
 {
@@ -583,7 +582,7 @@ Code | Type | Description
 
 DELETE https://salty-river-31528.herokuapp.com/profile/:user_id
 
-**Params:** None
+**Params:** *None*
 
 **Status Codes**
 
@@ -592,7 +591,7 @@ Code | Type | Description
 200 | Success | Server has processed the request and has successfully updated the user.
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
-**Request:**
+**Example Request:**
 
 ```
 {
@@ -600,7 +599,7 @@ Code | Type | Description
 }
 ```
 
-**Reponse:**
+**Example Reponse:**
 
 ```
 {
