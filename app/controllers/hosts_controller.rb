@@ -54,7 +54,7 @@ class HostsController < ApplicationController
     @seats = @rider.map {|rider| rider.user_id}
     @seats.push(@host.user_id)
       if @seats.include?(current_user.id) || @host.seats_available.zero?
-        render json: { error: "Sorry you can not join this trip." }, status: :forbidden
+        render json: { error: "Sorry, you cannot join this trip." }, status: :forbidden
       else
         @passenger = @host.seats.new(user_id: current_user.id)
         if @passenger.save
