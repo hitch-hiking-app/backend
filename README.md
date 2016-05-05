@@ -208,6 +208,10 @@ seat_price | integer | **Required.** Driver's are allowed to set a price per sea
 date_leave | date | **Required.** Driver's must set a departing date.
 date_arrive | date | **Required.** Driver's must set an arrival date.
 comments | text | **Optional.** Driver's are allowed to leave comments for other users.
+depart_latitude | float | **Required.**
+depart_longitude | float | **Required.**
+destination_latitude | float | **Required.**
+destination_longitude | float | **Required.**
 
 **Status Codes**
 
@@ -228,6 +232,10 @@ Code | Type | Description
   "date_leave": "2016-01-01",
   "date_arrive": "2016-01-02"
   "comments": "Looking forward to the trip"
+  "depart_latitude": 33.75373,
+  "depart_longitude": -84.391847,
+  "destination_latitude": -84.362606,
+  "destination_longitude": -84.362606
 }
 ```
 
@@ -247,6 +255,10 @@ Code | Type | Description
     "date_leave": "2016-01-01",
     "date_arrive": "2016-01-03",
     "comments": "Looking forward to the trip"
+    "depart_latitude": 33.75373,
+    "depart_longitude": -84.391847,
+    "destination_latitude": -84.362606,
+    "destination_longitude": -84.362606
   }
 }
 ```

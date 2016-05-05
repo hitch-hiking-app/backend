@@ -10,8 +10,7 @@ json.search @location do |location|
   json.user do
     json.first_name location.user.first_name
     json.last_name location.user.last_name
-    binding.pry
-    json.picture location.user.pictures.image
+    #json.picture location.user.pictures.image
   end
   end
 
