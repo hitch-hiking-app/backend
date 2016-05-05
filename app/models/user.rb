@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     }
   validates :auth_token, presence: true
 
-  validates :seats_available, presence: true 
+  validates :seats_available, presence: true
 
 
 
