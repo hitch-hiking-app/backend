@@ -15,7 +15,7 @@
   * [Trip Registration](#trip-registration)
   * [Trip Index](#trip-index)
   * [Trip Update](#trip-update)
-  * [Trip Rider](#trip-rider)
+  * [Trip Add Rider](#trip-add-rider)
   * [Trip Delete](#trip-delete)
 3. [Profile Model](#profile-model)
   * [Profile Show](#profile-show)
@@ -359,7 +359,7 @@ Code | Type | Description
 200 | Success | Server has processed the request and has successfully updated the user.
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
-#### Trip Rider
+#### Trip Add Rider
 
 #### PUT /riders/:id
 
