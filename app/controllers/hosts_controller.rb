@@ -49,9 +49,15 @@ class HostsController < ApplicationController
   # end
 
   def add
+
+    #@seat_per_passenger = @host.riders.count
+    #@host.riders.count = 1
+
     @host = Host.find_by(id: params[:id])
     @rider = @host.seats.all
-    @seats = @rider.map {|rider| rider.user_id} 
+    @seats = @rider.map {|rider| rider.user_id}
+    @seats.push(@host.user_id)
+    binding.pry
       unless @seats.include?(current_user.id)
         @passenger = @host.seats.new(user_id: current_user.id)
         if @passenger.save
@@ -64,23 +70,6 @@ class HostsController < ApplicationController
         render json: { error: "You already joined this trip!" }
       end
   end
-
-  # def update
-  #   @host = Host.find_by(id: params[:id])
-  #   if @host.update(host_params)
-  #       # @host.update(departing_city: params[:departing_city],
-  #       # destination: params[:destination], seats_available: params[:seats_available],
-  #       # seat_price: params[:seat_price], date_leave: params[:date_leave],
-  #       # date_arrive: params[:date_arrive], comments: params[:comments])
-  #     current_user.update(user_params)
-  #       # @user.update(credit_card_number: params[:credit_card_number],
-  #       # name_on_card: params[:name_on_card], expiration_date: params[:expiration_date],
-  #       # security_code: params[:security_code])
-  #     render "update.json.jbuilder", status: :ok
-  #   else
-  #     render json: { errors: @host.errors.full_messages }, status: :unprocessable_entity
-  #   end
-  # end
 
   def destroy
     @host = Host.find_by(id: params[:id])
