@@ -53,16 +53,17 @@ class HostsController < ApplicationController
     @rider = @host.seats.all
     @seats = @rider.map {|rider| rider.user_id}
     @seats.push(@host.user_id)
-      unless @seats.include?(current_user.id)
+      if @seats.include?(current_user.id) || @host.seats_available.zero?
+        render json: { error: "Sorry you can not join this trip." }, status: :forbidden
+      else
         @passenger = @host.seats.new(user_id: current_user.id)
         if @passenger.save
-          @host.update(add_params)
+          @seats_left = @host.seats_available - @host.riders.count
+          @host.update(seats_available: @seats_left)
           render "add.json.jbuilder", status: :ok
         else
           render json: { error: @passenger.errors.full_messages }, status: :conflict
         end
-      else
-        render json: { error: "You already joined this trip!" }
       end
   end
 
