@@ -453,17 +453,17 @@ Code | Type | Description
 
 Name | Type | Description
 --- | --- | ---
-dest_search | route | **Required.**
-destination_latitude | float | **Required.** 
-destination_longitude | float | **Required.** 
+dest_search | route | **Required.** This is the route needed for searching the destination of a trip.
+destination_latitude | float | **Required.** Trip's destination latitude.
+destination_longitude | float | **Required.** Trip's destination longitude.
 
 **Departing Search Parameters**
 
 Name | Type | Description
 --- | --- | ---
-depart_search | route | **Required.**
-departing_latitude | float | **Required.**
-departing_longitude | float | **Required.** 
+depart_search | route | **Required.** This is the route needed for searching the departure area of a trip.
+departing_latitude | float | **Required.** Trip's destination latitude.
+departing_longitude | float | **Required.** Trip's destination longitude.
 
 **Example Path**
 
