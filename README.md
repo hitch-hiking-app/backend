@@ -465,13 +465,54 @@ depart_search | route | **Required.** This is the route needed for searching the
 departing_latitude | float | **Required.** Trip's destination latitude.
 departing_longitude | float | **Required.** Trip's destination longitude.
 
-**Example Path**
+**Example Path:**
 
 `GET '/dest_search?destination_latitude=33.753730&destination_longitude=-84.391847&radius=100'`
 
 OR
 
 `GET '/depart_search?depart_latitude=33.753730&depart_longitude=-84.391847&radius=100'`
+
+**Example Response:**
+
+{
+  "search": [
+    {
+      "id": 112,
+      "departing_city": null,
+      "destination": null,
+      "seats_available": 4,
+      "seat_price": null,
+      "date_leave": null,
+      "date_arrive": null,
+      "comments": null,
+      "user": {
+        "user_name": "someone11234",
+        "first_name": "some",
+        "last_name": "one",
+        "email": "someone1124334@email.com"
+        "picture:" "image.url"
+      }
+    },
+    {
+      "id": 113,
+      "departing_city": null,
+      "destination": null,
+      "seats_available": 4,
+      "seat_price": null,
+      "date_leave": null,
+      "date_arrive": null,
+      "comments": null,
+      "user": {
+        "user_name": null,
+        "first_name": null,
+        "last_name": null,
+        "email": "email12321131@email.com"
+        "picture": "image.url"
+      }
+    }
+  ]
+}
 
 ## **Profile Model**
 
