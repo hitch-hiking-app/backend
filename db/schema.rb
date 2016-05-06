@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20160505201926) do
     t.date     "date_leave"
     t.date     "date_arrive"
     t.text     "comments"
-    t.string   "seat",                  default: [],               array: true
     t.float    "depart_latitude"
     t.float    "depart_longitude"
     t.integer  "seats_left",            default: 100
