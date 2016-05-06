@@ -1,11 +1,12 @@
-class UserWelcome < ApplicationMailer
+class HostJoin < ApplicationMailer
   default :from => 'no-reply@lifteri.com'
 
   # send a signup email to the user, pass in the user object that contains the user's email address
-  def welcome(user)
+  def join(user, host)
     @user = user
+    @host = host
     mail( to: @user.email,
-    subject: "Welcome to lifteri" )
+    subject: "Trip Itinerary" )
   end
 
 end
