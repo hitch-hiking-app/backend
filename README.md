@@ -445,7 +445,7 @@ Code | Type | Description
   }
 }
 ```
-## **Search**
+## **Trip Search**
 
 *This route is present for the searching of trips based on latitude, longitude, and radius.*
 
