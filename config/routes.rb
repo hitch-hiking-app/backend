@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :profile, only: [:show, :update, :destroy]
   put "users/:id", to: "users#update"
   put "riders/:id", to: "hosts#add"
+  get "depart_search", to: "hosts#departing_search"
+  get "dest_search", to: "hosts#destination_search"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
