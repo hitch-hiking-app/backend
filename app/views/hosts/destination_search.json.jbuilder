@@ -1,4 +1,4 @@
-json.search @location do |location|
+json.search @locations do |location|
 	 json.id location.id
 	 json.departing_city location.departing_city
   json.destination location.destination
@@ -8,9 +8,11 @@ json.search @location do |location|
   json.date_arrive location.date_arrive
   json.comments location.comments
   json.user do
+    json.user_name location.user.user_name
     json.first_name location.user.first_name
     json.last_name location.user.last_name
-    #json.picture location.user.pictures.image
+    json.picture location.user.pictures.first.image
+    json.email location.user.email
   end
   end
 

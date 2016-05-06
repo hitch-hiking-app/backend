@@ -13,7 +13,7 @@ class HostsController < ApplicationController
                                    date_arrive: params[:date_arrive], comments: params[:comments], 
                                    depart_latitude: params[:depart_latitude], 
                                    depart_longitude: params[:depart_longitude], 
-                                   destination_latitude: params[:destination_longitude],
+                                   destination_latitude: params[:destination_latitude],
                                    destination_longitude: params[:destination_longitude])
     if @host.save
        # send email here
@@ -74,14 +74,15 @@ class HostsController < ApplicationController
   end
 
   def departing_search
-    @location = Host.near([params[:depart_latitude], 
+    @locations = Host.near([params[:depart_latitude], 
                             params[:depart_longitude]],
                              params[:radius])
+
     render "departing_search.json.jbuilder"
   end
 
   def destination_search
-    @location = Host.near([params[:destination_latitude], 
+    @locations = Host.near([params[:destination_latitude], 
                             params[:destination_longitude]],
                             params[:radius])
     render "destination_search.json.jbuilder"
