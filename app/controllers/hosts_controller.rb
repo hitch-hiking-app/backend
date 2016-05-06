@@ -6,17 +6,18 @@ class HostsController < ApplicationController
     render "index.json.jbuilder", status: :ok
   end
 
-  def create
+  def create#email
     @host = current_user.hosts.new(departing_city: params[:departing_city],
                                    destination: params[:destination], seats_available: params[:seats_available],
                                    seat_price: params[:seat_price], date_leave: params[:date_leave],
-                                   date_arrive: params[:date_arrive], comments: params[:comments], 
-                                   depart_latitude: params[:depart_latitude], 
-                                   depart_longitude: params[:depart_longitude], 
-                                   destination_latitude: params[:destination_longitude],
+                                   date_arrive: params[:date_arrive], comments: params[:comments],
+                                   depart_latitude: params[:depart_latitude],
+                                   depart_longitude: params[:depart_longitude],
+                                   destination_latitude: params[:destination_latitude],
                                    destination_longitude: params[:destination_longitude])
     if @host.save
-       # send email here
+      mail = HostTrip.trip(@host.current_user)
+      mail.deliver_now
        render "create.json.jbuilder", status: :created
     else
       render json: { errors: @host.errors.full_messages }, status: :unprocessable_entity
@@ -42,7 +43,7 @@ class HostsController < ApplicationController
     end
   end
 
-  def add
+  def add#email
     @host = Host.find_by(id: params[:id])
     @rider = @host.seats.all
     @seats = @rider.map { |rider| rider.user_id }
@@ -74,14 +75,14 @@ class HostsController < ApplicationController
   end
 
   def departing_search
-    @location = Host.near([params[:depart_latitude], 
+    @location = Host.near([params[:depart_latitude],
                             params[:depart_longitude]],
                              params[:radius])
     render "departing_search.json.jbuilder"
   end
 
   def destination_search
-    @location = Host.near([params[:destination_latitude], 
+    @location = Host.near([params[:destination_latitude],
                             params[:destination_longitude]],
                             params[:radius])
     render "destination_search.json.jbuilder"
@@ -98,5 +99,5 @@ private
   #   params.permit :credit_card_number, :name_on_card,
   #                 :expiration_date, :security_code
   # end
-  
+
 end
