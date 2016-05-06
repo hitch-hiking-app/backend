@@ -22,9 +22,11 @@ class ProfileController < ApplicationController
 	end
 
 
-  def destroy#email
+  def destroy
     @profile = User.find_by(id: params[:id])
     if @profile.destroy
+      mail = ProfileDelete.delete(@profile)
+      mail.deliver_now
       render json: { message: "Profile deleted." },
       status: :accepted
     else

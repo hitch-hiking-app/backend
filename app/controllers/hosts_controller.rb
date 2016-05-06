@@ -6,7 +6,7 @@ class HostsController < ApplicationController
     render "index.json.jbuilder", status: :ok
   end
 
-  def create#email
+  def create
     @host = current_user.hosts.new(departing_city: params[:departing_city],
                                    destination: params[:destination], seats_available: params[:seats_available],
                                    seat_price: params[:seat_price], date_leave: params[:date_leave],
@@ -16,7 +16,7 @@ class HostsController < ApplicationController
                                    destination_latitude: params[:destination_latitude],
                                    destination_longitude: params[:destination_longitude])
     if @host.save
-      mail = HostTrip.trip(@host.current_user)
+      mail = HostTrip.trip(current_user, @host)
       mail.deliver_now
        render "create.json.jbuilder", status: :created
     else
@@ -43,7 +43,7 @@ class HostsController < ApplicationController
     end
   end
 
-  def add#email
+  def add
     @host = Host.find_by(id: params[:id])
     @rider = @host.seats.all
     @seats = @rider.map { |rider| rider.user_id }
@@ -54,6 +54,8 @@ class HostsController < ApplicationController
       else
         @passenger = @host.seats.new(user_id: current_user.id)
         if @passenger.save
+          mail = HostJoin.join(current_user, @host)
+          mail.deliver_now
           @host.update(seats_left: @host.seats_available - @host.riders.count)
           render "add.json.jbuilder", status: :ok
         else
