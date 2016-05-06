@@ -13,7 +13,7 @@ class Host < ActiveRecord::Base
   geocoded_by :departing_search, :latitude  => :depart_latitude,
   					    :longitude => :depart_longitude
   geocoded_by :destination_search, :latitude  => :destination_latitude,
-  						:longitude => :destination_longitude
+  						  :longitude => :destination_longitude
 end
 
 
