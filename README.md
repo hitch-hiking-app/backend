@@ -17,6 +17,7 @@
   * [Trip Update](#trip-update)
   * [Trip Add Rider](#trip-add-rider)
   * [Trip Delete](#trip-delete)
+  * [Trip Search](#trip-search)
 3. [Profile Model](#profile-model)
   * [Profile Show](#profile-show)
   * [Profile Edit](#profile-edit)
@@ -444,6 +445,33 @@ Code | Type | Description
   }
 }
 ```
+## **Search**
+
+*This route is present for the searching of trips based on latitude, longitude, and radius.*
+
+**Destination Search Parameters**
+
+Name | Type | Description
+--- | --- | ---
+dest_search | route | **Required.**
+destination_latitude | float | **Required.** 
+destination_longitude | float | **Required.** 
+
+**Departing Search Parameters**
+
+Name | Type | Description
+--- | --- | ---
+depart_search | route | **Required.**
+departing_latitude | float | **Required.**
+departing_longitude | float | **Required.** 
+
+**Example Path**
+
+`GET '/dest_search?destination_latitude=33.753730&destination_longitude=-84.391847&radius=100'`
+
+OR
+
+`GET '/depart_search?depart_latitude=33.753730&depart_longitude=-84.391847&radius=100'`
 
 ## **Profile Model**
 
