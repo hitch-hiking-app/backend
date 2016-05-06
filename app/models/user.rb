@@ -16,10 +16,6 @@ class User < ActiveRecord::Base
     }
   validates :auth_token, presence: true
 
-  validates :seats_available, presence: true
-
-
-
 
   def ensure_auth_token
     unless self.auth_token
