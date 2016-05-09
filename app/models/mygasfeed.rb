@@ -8,27 +8,33 @@ class MyGasFeed
 			"Authorization" => ENV[MYGASFEED_ID],
 			"User-Agent" => "HTTParty"
 		}
-		@default = {
+		@defaults = {
 			"distance" => 5,
 			"fuel type" => reg,
 			"sort_by" => distance
 		}
 	end
 
-	def departing_gas(lat, long)
+	def departing_gas(depart_latitude, depart_longitude)
 
 	options = {
-		"latitude" => @departing_lat
-		"longitude" => @depart_long
+		"latitude" => @depart_latitude
+		"longitude" => @depart_longitude
 	}
 	params = options.merge(@defaults)
-	
+
 	query = MyGasFeed.get("/stations/radius/", query: params, headers: @headers)
-	end 
-
-	def destination_gas
-
 	end
 
-	def suggested_
+	def destination_gas(destination_latitude, destination_longitude)
+    options = {
+      "latitude" => @destination_latitude
+      "longitude" => @destination_longitude
+    }
+    params = options.merge(@defaults)
+	end
+
+	def suggested_gas
+
+  end
 end
