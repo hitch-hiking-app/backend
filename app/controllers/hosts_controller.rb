@@ -86,10 +86,20 @@ class HostsController < ApplicationController
     @locations = Host.near([params[:destination_latitude], 
                             params[:destination_longitude]],
                             params[:radius])
-        binding.pry
-
     render "destination_search.json.jbuilder"
   end
+
+  # def suggesested_price
+  #   @depart_location = Host.find_by(id: params[:id])
+  #   @dest_location = Host.find_by(id: params[:id])
+  #   @depart = MyGasFeed.departing_gas(@depart_location.depart_latitude, @depart_location.depart_longitude)
+  #   @dest = MyGasFeed.destination_gas(@destination_latitude, @destination_longitude)
+  #   @depart[stations][0][mid_price]
+
+  #   @distance = @depart_location.distance_from(dest_location)
+  #   @gas = 2
+  #   @trip_price = @distance ** @gas
+  # end 
 
 private
 

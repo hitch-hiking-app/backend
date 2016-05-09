@@ -1,5 +1,6 @@
 class MyGasFeed
 	include HTTparty
+	debug_output $stdout # <= will spit out all request details to the console
 	base_uri "http://api.mygasfeed.com/"
 	format :json
 
@@ -15,20 +16,22 @@ class MyGasFeed
 		}
 	end
 
-	def departing_gas(lat, long)
-
+	def departing_gas(depart_latitude, depart_longitude)
 	options = {
-		"latitude" => @departing_lat
-		"longitude" => @depart_long
+		"latitude" => depart_latitude,
+		"longitude" => depart_longitude
 	}
 	params = options.merge(@defaults)
 	
 	query = MyGasFeed.get("/stations/radius/", query: params, headers: @headers)
 	end 
 
-	def destination_gas
-
+	def destination_gas(destination_latitude, destination_longitude)
+	options = {
+			"latitude" => destination_latitude,
+			"longitude" => destination_longitude
+	}
+	params = options.merge(@defaults)
+	query = MyGasFeed.get("/stations/radius/", query: params, headers: @headers)
 	end
-
-	def suggested_
 end
