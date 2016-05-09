@@ -43,7 +43,7 @@ first_name | string | **Required.** First name of the user.
 last_name | string | **Required.** Last name of the user.
 email | string | **Required.** User's contact email.
 password | string | **Required.** User's password.
-image | string | **Optional.** User's profile picture image link.
+image | string | **Required.** User's profile picture image link.
 
 **Status Codes**
 
