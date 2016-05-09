@@ -11,6 +11,8 @@ class HostsController < ApplicationController
                                    destination: params[:destination], seats_available: params[:seats_available],
                                    seat_price: params[:seat_price], date_leave: params[:date_leave],
                                    date_arrive: params[:date_arrive], comments: params[:comments],
+                                   depart_latitude: params[:depart_latitude],
+                                   depart_longitude: params[:depart_longitude],
                                    destination_latitude: params[:destination_latitude],
                                    destination_longitude: params[:destination_longitude])
     if @host.save
@@ -89,7 +91,7 @@ class HostsController < ApplicationController
     render "destination_search.json.jbuilder"
   end
 
-  # def suggesested_price
+  # def suggested_price
   #   @depart_location = Host.find_by(id: params[:id])
   #   @dest_location = Host.find_by(id: params[:id])
   #   @depart = MyGasFeed.departing_gas(@depart_location.depart_latitude, @depart_location.depart_longitude)
