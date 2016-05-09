@@ -17,13 +17,13 @@ class MyGasFeed
 
 	def departing_gas(depart_latitude, depart_longitude)
 
-	options = {
-		"latitude" => @depart_latitude
-		"longitude" => @depart_longitude
-	}
-	params = options.merge(@defaults)
+  	options = {
+  		"latitude" => @depart_latitude
+  		"longitude" => @depart_longitude
+  	}
+  	params = options.merge(@defaults)
 
-	query = MyGasFeed.get("/stations/radius/", query: params, headers: @headers)
+  	query = MyGasFeed.get("/stations/radius/", query: params, headers: @headers)
 	end
 
 	def destination_gas(destination_latitude, destination_longitude)
@@ -31,7 +31,10 @@ class MyGasFeed
       "latitude" => @destination_latitude
       "longitude" => @destination_longitude
     }
+
     params = options.merge(@defaults)
+
+    query = MyGasFeed.get("/stations/radius/", query: params, headers: @headers)
 	end
 
 	def suggested_gas
