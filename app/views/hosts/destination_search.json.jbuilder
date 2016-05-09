@@ -11,7 +11,7 @@ json.search @locations do |location|
     json.user_name location.user.user_name
     json.first_name location.user.first_name
     json.last_name location.user.last_name
-    json.picture location.user.pictures.first.image
+    #json.picture location.user.pictures.first.image
     json.email location.user.email
   end
   end
