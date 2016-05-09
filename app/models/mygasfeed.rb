@@ -9,7 +9,7 @@ class MyGasFeed
 			"Authorization" => ENV[MYGASFEED_ID],
 			"User-Agent" => "HTTParty"
 		}
-		@default = {
+		@defaults = {
 			"distance" => 5,
 			"fuel type" => reg,
 			"sort_by" => distance
