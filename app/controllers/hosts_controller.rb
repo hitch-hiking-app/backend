@@ -86,6 +86,8 @@ class HostsController < ApplicationController
     @locations = Host.near([params[:destination_latitude], 
                             params[:destination_longitude]],
                             params[:radius])
+        binding.pry
+
     render "destination_search.json.jbuilder"
   end
 
