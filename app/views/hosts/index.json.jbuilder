@@ -8,7 +8,7 @@ json.host @hosts do |host|
   json.departing_city host.departing_city
   json.destination host.destination
   json.seats_available host.seats_available
-  json.seat_price host.seat_price
+  json.total_price host.total_price
   json.date_leave host.date_leave
   json.date_arrive host.date_arrive
   json.comments host.comments

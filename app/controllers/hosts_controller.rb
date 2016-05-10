@@ -1,5 +1,5 @@
 class HostsController < ApplicationController
-  before_action :authenticate!, except: [:index, :show, :departing_search, :destination_search]
+  before_action :authenticate!, except: [:index, :show, :departing_search, :destination_search, :suggested_price]
 
   def index
     @hosts = Host.all
@@ -91,17 +91,31 @@ class HostsController < ApplicationController
     render "destination_search.json.jbuilder"
   end
 
-  # def suggested_price
-  #   @depart_location = Host.find_by(id: params[:id])
-  #   @dest_location = Host.find_by(id: params[:id])
-  #   @depart = MyGasFeed.departing_gas(@depart_location.depart_latitude, @depart_location.depart_longitude)
-  #   @dest = MyGasFeed.destination_gas(@destination_latitude, @destination_longitude)
-  #   @depart[stations][0][mid_price]
+  def suggested_price
+    result_a = []
+    result_b = []
+    mpg = 25 #national average miles per gallon
+    @trip = Host.find_by(id: params[:id])
+    @distance = Geocoder::Calculations.distance_between([@trip.depart_latitude, @trip.depart_longitude], 
+                                                [@trip.destination_latitude, @trip.destination_longitude])
+    @gas_feed = Mygasfeed.new
+    @depart = @gas_feed.get_gas(@trip.depart_latitude, @trip.depart_longitude)
+    @dest = @gas_feed.get_gas(@trip.destination_latitude, @trip.destination_longitude)
+    @depart.each {|x| result_a.push(x)}
+    @dest.each {|x| result_b.push(x)}
+    @start_city = result_a[2][1][0]
+    @end_city = result_b[2][1][0]
+    gas_a = @start_city.fetch("mid_price")
+    gas_b = @end_city.fetch("mid_price")
+    gas_product = (gas_a.to_f * gas_b.to_f) -3
+    gas_average = gas_product/2
+    @total_price = (@distance / mpg) * gas_average
+    render :json => { :total_price => @total_price }
+  end
 
-  #   @distance = @depart_location.distance_from(dest_location)
-  #   @gas = 2
-  #   @trip_price = @distance ** @gas
-  # end 
+  def distance
+
+  end 
 
 private
 
@@ -114,5 +128,6 @@ private
   #   params.permit :credit_card_number, :name_on_card,
   #                 :expiration_date, :security_code
   # end
+
 
 end
