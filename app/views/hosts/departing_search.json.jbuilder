@@ -7,6 +7,7 @@ json.search @locations do |location|
   json.date_leave location.date_leave
   json.date_arrive location.date_arrive
   json.comments location.comments
+  json.seats_left location.seats_left
   json.user do
     json.user_name location.user.user_name
     json.first_name location.user.first_name
@@ -15,4 +16,3 @@ json.search @locations do |location|
     json.email location.user.email
   end
   end
-
