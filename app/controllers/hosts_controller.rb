@@ -79,7 +79,7 @@ class HostsController < ApplicationController
   def departing_search
     @locations = Host.near([params[:depart_latitude],
                             params[:depart_longitude]],
-                             params[:radius], params[:seats_left]
+                             params[:radius],
                              latitude: :depart_latitude,
                              longitude: :depart_longitude)
 
@@ -89,7 +89,7 @@ class HostsController < ApplicationController
   def destination_search
     @locations = Host.near([params[:destination_latitude],
                             params[:destination_longitude]],
-                            params[:radius], params[:seats_left])
+                            params[:radius])
     render "destination_search.json.jbuilder"
   end
 
