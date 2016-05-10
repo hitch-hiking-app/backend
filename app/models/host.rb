@@ -10,10 +10,15 @@ class Host < ActiveRecord::Base
     #   message: "You've surpassed the maximum passengers allowed."
     # }
 
-  geocoded_by :departing_search, :latitude  => :depart_latitude,
-  					    :longitude => :depart_longitude
+  # geocoded_by :departing_search, :latitude  => :depart_latitude,
+  # 					    :longitude => :depart_longitude
   geocoded_by :destination_search, :latitude  => :destination_latitude,
   						  :longitude => :destination_longitude
+
+
+  def foo
+    binding.pry
+  end
 end
 
 

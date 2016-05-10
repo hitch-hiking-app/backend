@@ -79,7 +79,9 @@ class HostsController < ApplicationController
   def departing_search
     @locations = Host.near([params[:depart_latitude], 
                             params[:depart_longitude]],
-                             params[:radius])
+                             params[:radius],
+                             latitude: :depart_latitude,
+                             longitude: :depart_longitude)
 
     render "departing_search.json.jbuilder"
   end
@@ -101,6 +103,7 @@ class HostsController < ApplicationController
     @gas_feed = Mygasfeed.new
     @depart = @gas_feed.get_gas(@trip.depart_latitude, @trip.depart_longitude)
     @dest = @gas_feed.get_gas(@trip.destination_latitude, @trip.destination_longitude)
+    binding.pry
     @depart.each {|x| result_a.push(x)}
     @dest.each {|x| result_b.push(x)}
     @start_city = result_a[2][1][0]
