@@ -75,7 +75,7 @@ class HostsController < ApplicationController
   end
 
   def departing_search
-    @locations = Host.near([params[:depart_latitude], 
+    @locations = Host.near([params[:depart_latitude],
                             params[:depart_longitude]],
                              params[:radius])
 
@@ -83,23 +83,26 @@ class HostsController < ApplicationController
   end
 
   def destination_search
-    @locations = Host.near([params[:destination_latitude], 
+    @locations = Host.near([params[:destination_latitude],
                             params[:destination_longitude]],
                             params[:radius])
     render "destination_search.json.jbuilder"
   end
 
-  # def suggesested_price
-  #   @depart_location = Host.find_by(id: params[:id])
-  #   @dest_location = Host.find_by(id: params[:id])
-  #   @depart = MyGasFeed.departing_gas(@depart_location.depart_latitude, @depart_location.depart_longitude)
-  #   @dest = MyGasFeed.destination_gas(@destination_latitude, @destination_longitude)
-  #   @depart[stations][0][mid_price]
-
-  #   @distance = @depart_location.distance_from(dest_location)
-  #   @gas = 2
-  #   @trip_price = @distance ** @gas
-  # end 
+  def suggested_price
+    @trip = Host.find_by(id: params[:id])
+    #binding.pry
+    @gas_feed = Mygasfeed.new
+    @depart = @gas_feed.departing_gas(@trip.depart_latitude, @trip.depart_longitude)
+    @dest = @gas_feed.destination_gas(@trip.destination_latitude, @trip.destination_longitude)
+    @start_city = @depart[stations][0][mid_price]
+    @end_city = @depart[stations][0][mid_price]
+    starting_city ** end_city
+    #binding.pry
+    @distance = @depart_location.distance_from(dest_location)
+    @gas = 2
+    @trip_price = @distance ** @gas
+  end
 
 private
 

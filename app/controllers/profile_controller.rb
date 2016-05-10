@@ -8,6 +8,15 @@ class ProfileController < ApplicationController
 		render "show.json.jbuilder", status: :ok
 	end
 
+  def rider
+    @user = User.find_by(id: params[:id])
+    #@host = @user.hosts.all
+    @riders = @user.seats
+    #@trips = @riders.where(@user.seats.host_id == @host.id)
+    binding.pry
+    render "rider.json.jbuilder"
+  end
+
 	def update
   	@user = User.find_by(id: params[:id])
   	@user.update(user_params)

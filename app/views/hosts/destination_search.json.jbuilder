@@ -1,6 +1,6 @@
 json.search @locations do |location|
-	 json.id location.id
-	 json.departing_city location.departing_city
+	json.id location.id
+	json.departing_city location.departing_city
   json.destination location.destination
   json.seats_available location.seats_available
   json.seat_price location.seat_price
@@ -15,4 +15,3 @@ json.search @locations do |location|
     json.email location.user.email
   end
   end
-

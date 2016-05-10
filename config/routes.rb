@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   put "riders/:id", to: "hosts#add"
   get "depart_search", to: "hosts#departing_search"
   get "dest_search", to: "hosts#destination_search"
-
+  get "suggested_price/:id", to: "hosts#suggested_price"
+  get "rider/:id", to: "profile#rider"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
