@@ -515,6 +515,39 @@ OR
   ]
 }
 
+#### Trip Price
+
+#### GET /pps/:id
+
+*This route is present for the suggested seating price for trips.*
+
+GET https://salty-river-31528.herokuapp.com/pps/:host_id
+
+**Params:** *None*
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
+
+**Example Request:**
+
+```
+{
+  "Auth-Token": "203c7eb41a80cbb5398cc6b6db22ccc3"
+}
+```
+
+**Example Response:**
+
+```
+{
+  "total_price": 29.895580980064985
+}
+```
+
 ## **Profile Model**
 
 #### Profile Show
