@@ -16,7 +16,7 @@ json.user do
   json.pictures @user.pictures do |picture|
     json.image_url picture.image.url
   end
-	  json.host @host do |host|
+	  json.trips_hosted @host do |host|
       json.host_id host.id
   		json.driver host.user_id
   		json.departing_city host.departing_city
@@ -27,7 +27,18 @@ json.user do
 	  	json.date_arrive host.date_arrive
   		json.comments host.comments
 	  end
-end
+    json.trips_ridden @rider do |rider|
+      json.host_id rider.id
+      json.driver rider.user_id
+      json.departing_city rider.departing_city
+    json.destination rider.destination
+      json.seats_available rider.seats_available
+      json.seat_price rider.seat_price
+    json.date_leave rider.date_leave
+      json.date_arrive rider.date_arrive
+      json.comments rider.comments
+    end
+  end
 
 
 
