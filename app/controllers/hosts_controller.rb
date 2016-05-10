@@ -77,9 +77,9 @@ class HostsController < ApplicationController
   end
 
   def departing_search
-    @locations = Host.near([params[:depart_latitude], 
+    @locations = Host.near([params[:depart_latitude],
                             params[:depart_longitude]],
-                             params[:radius],
+                             params[:radius], params[:seats_left]
                              latitude: :depart_latitude,
                              longitude: :depart_longitude)
 
@@ -87,9 +87,9 @@ class HostsController < ApplicationController
   end
 
   def destination_search
-    @locations = Host.near([params[:destination_latitude], 
+    @locations = Host.near([params[:destination_latitude],
                             params[:destination_longitude]],
-                            params[:radius])
+                            params[:radius], params[:seats_left])
     render "destination_search.json.jbuilder"
   end
 
@@ -98,7 +98,7 @@ class HostsController < ApplicationController
     result_b = []
     mpg = 25 #national average miles per gallon
     @trip = Host.find_by(id: params[:id])
-    @distance = Geocoder::Calculations.distance_between([@trip.depart_latitude, @trip.depart_longitude], 
+    @distance = Geocoder::Calculations.distance_between([@trip.depart_latitude, @trip.depart_longitude],
                                                 [@trip.destination_latitude, @trip.destination_longitude])
     @gas_feed = Mygasfeed.new
     @depart = @gas_feed.get_gas(@trip.depart_latitude, @trip.depart_longitude)
@@ -117,7 +117,7 @@ class HostsController < ApplicationController
 
   def distance
 
-  end 
+  end
 
 private
 
