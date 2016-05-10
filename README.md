@@ -18,6 +18,7 @@
   * [Trip Add Rider](#trip-add-rider)
   * [Trip Delete](#trip-delete)
   * [Trip Search](#trip-search)
+  * [Trip Price](#trip-price)
 3. [Profile Model](#profile-model)
   * [Profile Show](#profile-show)
   * [Profile Edit](#profile-edit)
