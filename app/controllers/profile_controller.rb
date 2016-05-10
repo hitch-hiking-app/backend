@@ -4,9 +4,16 @@ class ProfileController < ApplicationController
 	def show
 		@user = User.find_by(id: params[:id])
 		@host = @user.hosts.all
+    @rider = @user.rides.all
 		@picture = @user.pictures
 		render "show.json.jbuilder", status: :ok
 	end
+
+  def rider
+    @user = User.find_by(id: params[:id])
+    @rider = @user.rides.all
+    render "rider.json.jbuilder", status: :ok
+  end
 
 	def update
   	@user = User.find_by(id: params[:id])
