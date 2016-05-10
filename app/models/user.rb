@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :hosts
   has_many :pictures, as: :imageable
   has_many :seats
-  has_many :rides, through: :seats, source: :trip
+  has_many :rides, through: :seats, source: :host
   has_secure_password
   #has_many :pictures, as: :imageable
   #has_attached_file :image
