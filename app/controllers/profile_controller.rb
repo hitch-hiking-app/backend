@@ -9,12 +9,6 @@ class ProfileController < ApplicationController
 		render "show.json.jbuilder", status: :ok
 	end
 
-  def rider
-    @user = User.find_by(id: params[:id])
-    @rider = @user.rides.all
-    render "rider.json.jbuilder", status: :ok
-  end
-
 	def update
   	@user = User.find_by(id: params[:id])
   	@user.update(user_params)
@@ -27,7 +21,6 @@ class ProfileController < ApplicationController
     		status: :unprocessable_entity
   		end
 	end
-
 
   def destroy
     @profile = User.find_by(id: params[:id])
