@@ -122,9 +122,9 @@ class HostsController < ApplicationController
     mpg = 25 #national average miles per gallon
     @depart_lat = params[:depart_latitude]
     @depart_long = params[:depart_longitude]
-    @dest_lat = params[:destination_latitude] 
+    @dest_lat = params[:destination_latitude]
     @dest_long = params[:destination_longitude]
-    @distance = Geocoder::Calculations.distance_between([params[:depart_latitude], params[:depart_longitude]], 
+    @distance = Geocoder::Calculations.distance_between([params[:depart_latitude], params[:depart_longitude]],
                                                 [params[:destination_latitude], params[:destination_longitude]])
     @gas_feed = Mygasfeed.new
     @depart = @gas_feed.get_gas(@depart_lat, @depart_long)
