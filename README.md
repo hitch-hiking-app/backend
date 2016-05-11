@@ -328,21 +328,74 @@ Code | Type | Description
 200 | Success | Server has processed the request and has successfully updated the user.
 
 **Example Response:**
+
 ```
 {
   "hosts": {
-    "id": 6,
-    "user_id": 26,
-    "departing_city": "Los Angeles",
-    "destination": "Seattle",
-    "seats_available": 2,
-    "seat_price": 100,
-    "created_at": "2016-04-26T19:31:32.529Z",
-    "updated_at": "2016-04-26T19:31:32.529Z",
-    "date_leave": "2016-01-01",
-    "date_arrive": "2016-01-03",
-    "comments": "Looking forward to the trip"
-  }
+    "id": 169,
+    "user_id": 164,
+    "departing_city": "Portland, OR, United States",
+    "destination": "Seattle-Tacoma International Airport, International Boulevard, Seattle, WA, United States",
+    "seats_available": 4,
+    "seat_price": 40,
+    "created_at": "2016-05-10T19:58:15.901Z",
+    "updated_at": "2016-05-11T14:30:07.557Z",
+    "date_leave": "2016-05-13",
+    "date_arrive": "2016-05-13",
+    "comments": "Fingerstache stumptown asymmetrical, sriracha shoreditch quinoa ugh vice. Roof party lo-fi mlkshk, etsy tote bag wayfarers polaroid health goth try-hard shabby chic. Normcore brunch listicle quinoa, pickled vinyl banh mi you probably haven't heard of them deep v man braid fingerstache banjo +1 kickstarter. Drinking vinegar master cleanse crucifix synth.",
+    "depart_latitude": 45.5230622,
+    "depart_longitude": -122.6764816,
+    "seats_left": 2,
+    "destination_latitude": 47.4502499,
+    "destination_longitude": -122.3088165,
+    "radius": null
+  },
+  "riders": [
+    {
+      "id": 162,
+      "user_name": "ArmaVel",
+      "first_name": "Armando",
+      "last_name": "Velasquez",
+      "email": "Arma@vel.com",
+      "phone": "382-382-9482",
+      "car_info": "Brown panel station wagon. Seats 7.",
+      "home_city": "Caracas, Venezuela",
+      "created_at": "2016-05-10T18:19:59.889Z",
+      "updated_at": "2016-05-10T18:26:44.751Z",
+      "password_digest": "$2a$10$t6N.guaOCaDqPFgtD0Udkujg2jzir4ajuVSb0FAJ6mYaqa2ezSQkm",
+      "auth_token": "bf0ea7c96f610e5ef8255b78ddddb707",
+      "driver": true,
+      "picture_id": null,
+      "license_plate": "2KJ23K4",
+      "license_number": "L2L1L23KL1K23J243",
+      "credit_card_number": "3728373827374728",
+      "name_on_card": null,
+      "expiration_date": null,
+      "security_code": null
+    },
+    {
+      "id": 167,
+      "user_name": "kellysmith101",
+      "first_name": "Kelly",
+      "last_name": "Wonderwoman",
+      "email": "kelly@smith.com",
+      "phone": "8888989090",
+      "car_info": "Black Van, very cozy",
+      "home_city": "Miami",
+      "created_at": "2016-05-11T13:26:45.049Z",
+      "updated_at": "2016-05-11T15:09:59.498Z",
+      "password_digest": "$2a$10$ZN7ZXZn41vBvfl/dmG8qTOh7p9MVfJgduyy8AeZslER.f6XlKIvoe",
+      "auth_token": "589af1b3d94755eece32c7176bf23326",
+      "driver": true,
+      "picture_id": null,
+      "license_plate": "0934u5094u0f",
+      "license_number": "90sdfu03dsfsdf345",
+      "credit_card_number": "904098409302",
+      "name_on_card": null,
+      "expiration_date": null,
+      "security_code": null
+    }
+  ]
 }
 ```
 
@@ -391,6 +444,7 @@ Code | Type | Description
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 **Example Response:**
+
 ```
 {
   "hosts": {
@@ -417,6 +471,7 @@ Code | Type | Description
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 **Example Response:**
+
 ```
 {
   "departing_city": "Atlanta"
@@ -445,6 +500,7 @@ Code | Type | Description
     "comments": "Looking forward to the trip."
   }
 }
+
 ```
 #### Trip Search
 
@@ -517,13 +573,20 @@ OR
 
 #### Trip Price
 
-#### GET /pps/:id
+#### GET /pps/
 
-*This route is present for the suggested seating price for trips.*
+*This route is present for the suggested seating price for trips that aren't yet booked.*
 
 GET https://salty-river-31528.herokuapp.com/pps/:host_id
 
-**Params:** *None*
+**Params:**
+
+Name | Type | Description
+--- | --- | ---
+depart_latitude | float | **Required.**
+depart_longitude | float | **Required.**
+destination_latitude | float | **Required.**
+destination_longitude | float | **Required.**
 
 **Status Codes**
 
@@ -536,9 +599,38 @@ Code | Type | Description
 
 ```
 {
-  "Auth-Token": "203c7eb41a80cbb5398cc6b6db22ccc3"
+  "depart_latitude": 33.75373,
+  "depart_longitude": -84.391847,
+  "destination_latitude": -84.362606,
+  "destination_longitude": -84.362606
 }
 ```
+
+**Example Response:**
+
+```
+{
+  "total_price": 29.895580980064985
+}
+```
+
+#### Trip Price(already booked)
+
+#### GET /pps/:id
+
+*This route is present for the suggested seating price for trips that are already hosted.*
+
+GET https://salty-river-31528.herokuapp.com/pps/:host_id
+
+**Params:** *None*
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Server has processed the request and has successfully updated the user.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
+
 
 **Example Response:**
 
