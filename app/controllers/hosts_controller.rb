@@ -26,7 +26,8 @@ class HostsController < ApplicationController
 
   def show
     @host = Host.find(params["id"])
-    render json: { hosts: @host.as_json }
+    @rider = @host.riders
+    render json: { hosts: @host.as_json, riders: @rider.as_json }
   end
 
 
@@ -139,7 +140,7 @@ class HostsController < ApplicationController
     @total_price = (@distance / mpg) * gas_average
     render :json => { :total_price => @total_price }
   end
-  
+
 private
 
   def host_params
