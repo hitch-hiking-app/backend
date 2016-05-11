@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "depart_search", to: "hosts#departing_search"
   get "dest_search", to: "hosts#destination_search"
   get "pps/:id", to: "hosts#suggested_price"
-
+  post "pps", to: "hosts#estimated_price"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
