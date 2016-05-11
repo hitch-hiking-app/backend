@@ -1,3 +1,4 @@
+![Lifteri Logo](https://files.slack.com/files-pri/T066DB5HT-F180H8NG3/lifteripainted.png)
 
 [lifteri-ci]: https://travis-ci.org/hitch-hiking-app/backend.svg?branch=master
 [lifteri-ci-image]: https://travis-ci.org/hitch-hiking-app/backend.svg?branch=master
