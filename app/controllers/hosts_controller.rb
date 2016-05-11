@@ -1,5 +1,5 @@
 class HostsController < ApplicationController
-  before_action :authenticate!, except: [:index, :show, :departing_search, :destination_search, :suggested_price]
+  before_action :authenticate!, except: [:index, :show, :departing_search, :destination_search, :suggested_price, :estimated_price]
 
   def index
     @hosts = Host.all
@@ -115,9 +115,30 @@ class HostsController < ApplicationController
     render :json => { :total_price => @total_price }
   end
 
-  def distance
-
-  end 
+  def estimated_price
+    result_a = []
+    result_b = []
+    mpg = 25 #national average miles per gallon
+    @depart_lat = params[:depart_latitude]
+    @depart_long = params[:depart_longitude]
+    @dest_lat = params[:destination_latitude] 
+    @dest_long = params[:destination_longitude]
+    @distance = Geocoder::Calculations.distance_between([params[:depart_latitude], params[:depart_longitude]], 
+                                                [params[:destination_latitude], params[:destination_longitude]])
+    @gas_feed = Mygasfeed.new
+    @depart = @gas_feed.get_gas(@depart_lat, @depart_long)
+    @dest = @gas_feed.get_gas(@dest_lat, @dest_long)
+    @depart.each {|x| result_a.push(x)}
+    @dest.each {|x| result_b.push(x)}
+    @start_city = result_a[2][1][0]
+    @end_city = result_b[2][1][0]
+    gas_a = @start_city.fetch("mid_price")
+    gas_b = @end_city.fetch("mid_price")
+    gas_product = (gas_a.to_f * gas_b.to_f) -3
+    gas_average = gas_product/2
+    @total_price = (@distance / mpg) * gas_average
+    render :json => { :total_price => @total_price }
+  end
 
 private
 
