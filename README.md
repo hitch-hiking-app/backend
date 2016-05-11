@@ -332,23 +332,24 @@ Code | Type | Description
 ```
 {
   "hosts": {
-    "id": 169,
+    "user_name": "lanasmith",
+    "first_name": "Micah",
+    "last_name": "Smith",
+    "email": "micah@smith.com",
+    "driver": true,
     "user_id": 164,
+    "id": 169,
     "departing_city": "Portland, OR, United States",
     "destination": "Seattle-Tacoma International Airport, International Boulevard, Seattle, WA, United States",
     "seats_available": 4,
     "seat_price": 40,
-    "created_at": "2016-05-10T19:58:15.901Z",
-    "updated_at": "2016-05-11T14:30:07.557Z",
     "date_leave": "2016-05-13",
     "date_arrive": "2016-05-13",
-    "comments": "Fingerstache stumptown asymmetrical, sriracha shoreditch quinoa ugh vice. Roof party lo-fi mlkshk, etsy tote bag wayfarers polaroid health goth try-hard shabby chic. Normcore brunch listicle quinoa, pickled vinyl banh mi you probably haven't heard of them deep v man braid fingerstache banjo +1 kickstarter. Drinking vinegar master cleanse crucifix synth.",
+    "comments": "Fingerstache stumptown asymmetrical, sriracha shoreditch quinoa ugh vice. Roof party lo-fi mlkshk, etsy tote bag wayfarers polaroid health goth try-hard shabby chic. Normcore brunch listicle quinoa, pickled vinyl banh mi you probably haven't heard of them deep v man braid fingerstache banjo +1 kickstarter. Drinking vinegar master cleanse crucifix synth. Fanny pack sustainable lumbersexual craft beer shabby chic, brooklyn taxidermy thundercats put a bird on it disrupt actually cray cred readymade post-ironic. Street art tumblr kitsch, kinfolk food truck blue bottle banh mi tote bag. Chicharrones tousled brunch pork belly, normcore tilde swag artisan sriracha squid sustainable crucifix photo booth cliche.",
     "depart_latitude": 45.5230622,
     "depart_longitude": -122.6764816,
-    "seats_left": 2,
     "destination_latitude": 47.4502499,
-    "destination_longitude": -122.3088165,
-    "radius": null
+    "destination_longitude": -122.3088165
   },
   "riders": [
     {
@@ -357,46 +358,18 @@ Code | Type | Description
       "first_name": "Armando",
       "last_name": "Velasquez",
       "email": "Arma@vel.com",
+      "auth_token": "bf0ea7c96f610e5ef8255b78ddddb707",
+      "driver": true,
       "phone": "382-382-9482",
       "car_info": "Brown panel station wagon. Seats 7.",
       "home_city": "Caracas, Venezuela",
-      "created_at": "2016-05-10T18:19:59.889Z",
-      "updated_at": "2016-05-10T18:26:44.751Z",
-      "password_digest": "$2a$10$t6N.guaOCaDqPFgtD0Udkujg2jzir4ajuVSb0FAJ6mYaqa2ezSQkm",
-      "auth_token": "bf0ea7c96f610e5ef8255b78ddddb707",
-      "driver": true,
-      "picture_id": null,
       "license_plate": "2KJ23K4",
       "license_number": "L2L1L23KL1K23J243",
       "credit_card_number": "3728373827374728",
-      "name_on_card": null,
-      "expiration_date": null,
-      "security_code": null
-    },
-    {
-      "id": 167,
-      "user_name": "kellysmith101",
-      "first_name": "Kelly",
-      "last_name": "Wonderwoman",
-      "email": "kelly@smith.com",
-      "phone": "8888989090",
-      "car_info": "Black Van, very cozy",
-      "home_city": "Miami",
-      "created_at": "2016-05-11T13:26:45.049Z",
-      "updated_at": "2016-05-11T15:09:59.498Z",
-      "password_digest": "$2a$10$ZN7ZXZn41vBvfl/dmG8qTOh7p9MVfJgduyy8AeZslER.f6XlKIvoe",
-      "auth_token": "589af1b3d94755eece32c7176bf23326",
-      "driver": true,
-      "picture_id": null,
-      "license_plate": "0934u5094u0f",
-      "license_number": "90sdfu03dsfsdf345",
-      "credit_card_number": "904098409302",
-      "name_on_card": null,
-      "expiration_date": null,
-      "security_code": null
+      "pictures": [
+        "http://s3.amazonaws.com/lifteri/pictures/images/000/000/119/original/mario.png?1462904399"
+      ]
     }
-  ]
-}
 ```
 
 #### Trip Update
