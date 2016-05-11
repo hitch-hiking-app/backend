@@ -532,6 +532,7 @@ OR
 
 **Example Response:**
 
+```
 {
   "search": [
     {
@@ -570,6 +571,7 @@ OR
     }
   ]
 }
+```
 
 #### Trip Price
 
