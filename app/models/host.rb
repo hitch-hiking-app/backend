@@ -16,6 +16,7 @@ class Host < ActiveRecord::Base
   						  :longitude => :destination_longitude
 
 
+
 end
 
 

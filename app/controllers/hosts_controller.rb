@@ -139,7 +139,7 @@ class HostsController < ApplicationController
     @total_price = (@distance / mpg) * gas_average
     render :json => { :total_price => @total_price }
   end
-
+  
 private
 
   def host_params
