@@ -26,8 +26,7 @@ class HostsController < ApplicationController
 
   def show
     @host = Host.find(params["id"])
-    @rider = @host.riders
-    render json: { hosts: @host.as_json, riders: @rider.as_json }
+    render "show.json.jbuilder", status: :created
   end
 
 
