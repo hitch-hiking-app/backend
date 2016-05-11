@@ -115,7 +115,6 @@ class HostsController < ApplicationController
     render :json => { :total_price => @total_price }
   end
 
-<<<<<<< HEAD
   def estimated_price
     result_a = []
     result_b = []
