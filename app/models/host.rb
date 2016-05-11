@@ -16,9 +16,6 @@ class Host < ActiveRecord::Base
   						  :longitude => :destination_longitude
 
 
-  def foo
-    binding.pry
-  end
 end
 
 
