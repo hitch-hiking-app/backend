@@ -6,9 +6,8 @@ class PriceController < ApplicationController
     @stations = @gas_feed.get_gas(latitude, longitude)
     @stations.each { |station| result.push(station) }
     gas_station = result[2][1][0]
-    gas_price = gas_station.fetch("mid_price")
-    gas_price
-  end
+    gas_price = gas_station.fetch("reg_price")
+    end
 
   def calculate_distance(depart_lat, depart_long, dest_lat, dest_long)
     @distance = Geocoder::Calculations.distance_between([depart_lat, depart_long], 
@@ -29,7 +28,7 @@ class PriceController < ApplicationController
     @dest_long = params[:destination_longitude]
     @distance = calculate_distance(@depart_lat, @depart_long, @dest_lat, @dest_long)
     @depart_gas = collect_stations(@depart_lat, @depart_long)
-    @dest_gas = collect_stations(@dest_lat, @depart_long)
+    @dest_gas = collect_stations(@dest_lat, @dest_long)
     total_price = estimate_price(@distance, @depart_gas, @dest_gas)
       render :json => { :total_price => total_price }
   end
