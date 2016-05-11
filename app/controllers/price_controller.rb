@@ -16,7 +16,7 @@ class PriceController < ApplicationController
 
   def estimate_price(distance, depart_gas, dest_gas)
     mpg = 25 #national average miles per gallon
-    gas_product = (depart_gas.to_f * dest_gas.to_f) -3
+    gas_product = (depart_gas.to_f * dest_gas.to_f) -2
     gas_average = gas_product/2
     total_price = (distance / mpg) * gas_average
   end
