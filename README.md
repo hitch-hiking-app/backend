@@ -616,7 +616,7 @@ Code | Type | Description
 }
 ```
 
-#### Trip Price(already booked)
+### Trip Price(already booked)
 
 #### GET /pps/:id
 
