@@ -9,6 +9,7 @@ json.search @locations do |location|
   json.comments location.comments
   json.seats_left location.seats_left
   json.user do
+    json.user_id location.user.id
     json.user_name location.user.user_name
     json.first_name location.user.first_name
     json.last_name location.user.last_name
