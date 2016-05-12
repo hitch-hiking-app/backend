@@ -7,7 +7,14 @@ class PriceController < ApplicationController
     @stations.each { |station| result.push(station) }
     gas_station = result[2][1][0]
     gas_price = gas_station.fetch("reg_price")
-    end
+     if gas_price == "N/A"
+      gas_price = gas_station.fetch("mid_price")
+        if gas_price == "N/A"
+          gas_price = gas_station.fetch("pre_price")
+        end
+     end
+    gas_price
+  end
 
   def calculate_distance(depart_lat, depart_long, dest_lat, dest_long)
     @distance = Geocoder::Calculations.distance_between([depart_lat, depart_long], 
